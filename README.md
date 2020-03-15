@@ -1,6 +1,6 @@
 # Ohjelmistotekniikka, harjoitustyö
 
-## Viikko1
+## Viikko1:
 
 Tehtävät:
 
