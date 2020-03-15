@@ -1,7 +1,7 @@
 # Otsikko!
 
-*Täällä lukee **juttuja**.*
+##Viikko1
 
-Juttu!
-Juttu?
-Juttu!?!
+
+[komentorivi.txt](https://github.com/selsama/ot-harjoitus/blob/master/viikko1/gitlog.txt)
+
