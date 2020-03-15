@@ -1,3 +1,5 @@
+Gitlog-tehtävän tulostus:
+
 commit 50dee6459021e0502aaae16073f1dbc3594f570a
 Author: S Salmi <56793802+selsama@users.noreply.github.com>
 Date:   Mon Mar 16 00:10:14 2020 +0200
