@@ -1,0 +1,114 @@
+commit 50dee6459021e0502aaae16073f1dbc3594f570a
+Author: S Salmi <56793802+selsama@users.noreply.github.com>
+Date:   Mon Mar 16 00:10:14 2020 +0200
+
+    muutoksia
+
+ tiedostoja/file2                     | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 399bacd2db3c59e9f2a5e8293ffb7ddc4595c233
+Author: S Salmi <56793802+selsama@users.noreply.github.com>
+Date:   Mon Mar 16 00:05:54 2020 +0200
+
+    lisätty kansio tiedostoja
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2     | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 2b2dbc369b079477ace31e78d7025cf70c7168ca
+Author: S Salmi <56793802+selsama@users.noreply.github.com>
+Date:   Mon Mar 16 00:01:08 2020 +0200
+
+    muutoksia
+
+ kissa.txt  | 2 ++
+ kolmas.txt | 1 +
+ 2 files changed, 3 insertions(+)
+
+commit 3e94da5b1b59c56c109e6a1257f4b2d406bd4896
+Author: S Salmi <56793802+selsama@users.noreply.github.com>
+Date:   Sun Mar 15 23:57:58 2020 +0200
+
+    nimetty uudelleen tiedosto->kissa
+
+ tiedosto.txt => kissa.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 661c72b7c4bb64f1630d361819ab30d64a263c3b
+Author: S Salmi <56793802+selsama@users.noreply.github.com>
+Date:   Sun Mar 15 23:56:46 2020 +0200
+
+    poistettu toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit a3076d81a948db1fa4af2f39e4c92b183eeab719
+Author: S Salmi <56793802+selsama@users.noreply.github.com>
+Date:   Sun Mar 15 23:55:07 2020 +0200
+
+    muokattu esittelyä
+
+ tiedosto.txt | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+commit 2897b71fd01b6def72d8e368a624006f7f343ab7
+Author: S Salmi <56793802+selsama@users.noreply.github.com>
+Date:   Sun Mar 15 23:53:16 2020 +0200
+
+    lisätty rotuesittely
+
+ tiedosto.txt | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
+
+commit 1affe8b731e23e23437dba5616b2d1a8ceaf628a
+Author: S Salmi <56793802+selsama@users.noreply.github.com>
+Date:   Sun Mar 15 23:46:17 2020 +0200
+
+    stuff lisätty
+
+ stuff/juttu.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 135bcff41f573c551c74cae216fa465876cee0de
+Author: S Salmi <56793802+selsama@users.noreply.github.com>
+Date:   Sun Mar 15 23:44:33 2020 +0200
+
+    muutoksia
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 949f9a0fb41768c1a83aad81ba7fe5fd645b4b2c
+Author: S Salmi <56793802+selsama@users.noreply.github.com>
+Date:   Sun Mar 15 23:43:00 2020 +0200
+
+    kolmas lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 13d20b4a49f5c24c71defe759928ddd84303233c
+Author: S Salmi <56793802+selsama@users.noreply.github.com>
+Date:   Sun Mar 15 23:40:39 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 5488706917adf32a48aabe63ee8de368097568a0
+Author: S Salmi <56793802+selsama@users.noreply.github.com>
+Date:   Sun Mar 15 23:35:56 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
