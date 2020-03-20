@@ -4,19 +4,13 @@
 
 [Dokumentointi](https://github.com/selsama/ot-harjoitus/tree/master/dokumentointi)
 
+[Projekti](https://github.com/selsama/ot-harjoitus/tree/master/Matopeli) - vielä tyhjä
+
 ## Laskarit
 
-### Viikko1:
+[Laskarit](https://github.com/selsama/ot-harjoitus/tree/master/laskarit)
 
-Tehtävät:
+[Viikko1](https://github.com/selsama/ot-harjoitus/tree/master/laskarit/viikko1)
 
-[gitlog.txt](https://github.com/selsama/ot-harjoitus/blob/master/viikko1/gitlog.txt)
-
-[komentorivi.txt](https://github.com/selsama/ot-harjoitus/blob/master/viikko1/komentorivi.txt)
-
-### Viikko2:
-
-Tehtävät:
-
-[testikattavuus.png](https://github.com/selsama/ot-harjoitus/blob/master/viikko2/testikattavuus.png)
+[Viikko2](https://github.com/selsama/ot-harjoitus/tree/master/laskarit/viikko2)
 
