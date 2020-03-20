@@ -12,5 +12,5 @@ Tehtävät:
 
 Tehtävät:
 
-[testikattavuus.png] (https://github.com/selsama/ot-harjoitus/blob/master/viikko2/testikattavuus.png)
+[testikattavuus.png](https://github.com/selsama/ot-harjoitus/blob/master/viikko2/testikattavuus.png)
 
