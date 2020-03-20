@@ -1,6 +1,12 @@
 # Ohjelmistotekniikka, harjoitustyö
 
-## Viikko1:
+## Harjoitustyö
+
+[Dokumentointi](https://github.com/selsama/ot-harjoitus/tree/master/dokumentointi)
+
+## Laskarit
+
+### Viikko1:
 
 Tehtävät:
 
@@ -8,7 +14,7 @@ Tehtävät:
 
 [komentorivi.txt](https://github.com/selsama/ot-harjoitus/blob/master/viikko1/komentorivi.txt)
 
-## Viikko2:
+### Viikko2:
 
 Tehtävät:
 
