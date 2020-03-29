@@ -1,3 +1,5 @@
+package snakegame;
+
 import snakegame.ui.SnakeUi;
 
 public class Main {
