@@ -4,7 +4,7 @@
 
 [Dokumentointi](https://github.com/selsama/ot-harjoitus/tree/master/dokumentointi)
 
-[Projekti](https://github.com/selsama/ot-harjoitus/tree/master/Matopeli) - vielä tyhjä
+[Projekti](https://github.com/selsama/ot-harjoitus/tree/master/SnakeGame)
 
 ## Laskarit
 
