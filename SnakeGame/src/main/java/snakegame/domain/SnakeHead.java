@@ -9,6 +9,12 @@ package snakegame.domain;
  *
  * @author salmison
  */
-public class Snake {
+public class SnakeHead implements Crashable {
     
+    
+    
+    @Override
+    public void crash(){
+        //TODO how
+    }
 }
