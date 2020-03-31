@@ -11,6 +11,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.HBox;
@@ -47,6 +48,21 @@ public class SnakeUi extends Application {
         SnakeHead snake = new SnakeHead(300,300);
         gamePane.getChildren().add(snake.getHead());
         gameScene = new Scene(gamePane,600,600);
+        
+        gameScene.setOnKeyPressed(event ->{
+            if(event.getCode()== KeyCode.LEFT){
+                snake.turnLeft();
+            }
+            if(event.getCode()==KeyCode.RIGHT){
+                snake.turnRight();
+            }
+            if(event.getCode()==KeyCode.UP){
+                snake.turnUp();
+            }
+            if(event.getCode()==KeyCode.DOWN){
+                snake.turnDown();
+            }
+        });
         
         // setup primary scene
         primaryStage.setTitle("SNAKES");

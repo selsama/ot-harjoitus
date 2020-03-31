@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package snakegame.domain;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.*;
 /**
  *
  * @author salmison
@@ -14,11 +14,35 @@ public class SnakeHead implements Crashable {
     private Rectangle head;
     
     public SnakeHead(double x, double y){
-        this.head= new Rectangle(x,y,10,10);
+        this.head= new Rectangle(x,y,10,20);
     }
     
     public Rectangle getHead(){
         return head;
+    }
+    
+    public void turnLeft(){
+        if(head.getRotate()!=+90){
+            head.setRotate(-90);
+        }
+    }
+    
+    public void turnRight(){
+        if(head.getRotate()!=+90){
+            head.setRotate(90);
+        }
+    }
+    
+    public void turnUp(){
+        if(head.getRotate()!=180){
+            head.setRotate(0);
+        }
+    }
+    
+    public void turnDown(){
+        if(head.getRotate()!=0){
+            head.setRotate(180);
+        }
     }
     
     
