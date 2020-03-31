@@ -8,6 +8,7 @@ package snakegame.ui;
 import snakegame.domain.*;
 
 import javafx.application.Application;
+import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -63,6 +64,17 @@ public class SnakeUi extends Application {
                 snake.turnDown();
             }
         });
+        
+        boolean gameIsPaused=false; //where should this go? perhaps a class under the domain that took care of running the game?
+        
+        new AnimationTimer(){
+            @Override
+            public void handle(long moment){
+                if(!gameIsPaused){
+                    snake.move();
+                }
+            }
+        }.start();
         
         // setup primary scene
         primaryStage.setTitle("SNAKES");
