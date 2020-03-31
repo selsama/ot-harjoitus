@@ -87,6 +87,67 @@ public class SnakeHeadTest {
         assertEquals(180,head.getHead().getRotate(),0.01);
     }
     
+    @Test
+    public void snakeHeadMoves(){
+        double startX=head.getHead().getTranslateX();
+        double startY=head.getHead().getTranslateY();
+        head.move();
+        assertTrue(startX!=head.getHead().getTranslateX()||startY!=head.getHead().getTranslateY());
+    }
+    
+    @Test
+    public void snakeHeadMovesRight(){
+        head.getHead().setRotate(90);
+        double start = head.getHead().getTranslateX();
+        head.move();
+        assertTrue(start<head.getHead().getTranslateX());
+    }
+    
+    @Test
+    public void snakeHeadMovesLeft(){
+        head.getHead().setRotate(-90);
+        double start = head.getHead().getTranslateX();
+        head.move();
+        assertTrue(start>head.getHead().getTranslateX());
+    }
+    
+    @Test
+    public void snakeHeadMovesUp(){
+        head.getHead().setRotate(0);
+        double start = head.getHead().getTranslateY();
+        head.move();
+        assertTrue(start>head.getHead().getTranslateY());
+    }
+    
+    @Test
+    public void snakeHeadMovesDown(){
+        head.getHead().setRotate(180);
+        double start = head.getHead().getTranslateY();
+        head.move();
+        assertTrue(start<head.getHead().getTranslateY());
+    }
+    
+    @Test
+    public void snakeHeadDoesNotMoveVerticallyWhenGoingHorizontally(){
+        double start = head.getHead().getTranslateY();
+        head.getHead().setRotate(90);
+        head.move();
+        head.getHead().setRotate(-90);
+        head.move();
+        head.move();
+        assertEquals(start,head.getHead().getTranslateY(),0.01);
+    }
+    
+    @Test
+    public void snakeHeadDoesNotMoveHorizontallyWhenGoingVertically(){
+        double start = head.getHead().getTranslateX();
+        head.getHead().setRotate(0);
+        head.move();
+        head.getHead().setRotate(180);
+        head.move();
+        head.move();
+        assertEquals(start,head.getHead().getTranslateX(),0.01);
+    }    
 //     @Test
 //     public void snakeHeadBeginsInMiddle() {
 //     }
