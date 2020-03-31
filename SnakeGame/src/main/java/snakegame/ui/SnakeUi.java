@@ -5,11 +5,14 @@
  */
 package snakegame.ui;
 
+import snakegame.domain.*;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -39,8 +42,10 @@ public class SnakeUi extends Application {
         startScene = new Scene(startPane,600,600);
         
         // create gameScene
-        BorderPane gamePane = new BorderPane();
+        Pane gamePane = new Pane();
         
+        SnakeHead snake = new SnakeHead(300,300);
+        gamePane.getChildren().add(snake.getHead());
         gameScene = new Scene(gamePane,600,600);
         
         // setup primary scene
