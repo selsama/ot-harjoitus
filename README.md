@@ -1,16 +1,15 @@
-# Ohjelmistotekniikka, harjoitustyö
+# Ohjelmistotekniikka, harjoitustyö: SnakeGame
 
-## Harjoitustyö
+Sovellus tulee olemaan matopeli. Tällä hetkellä se on ruutu, jossa liikkuu suorakaide. Enjoy. :-)
 
-[Dokumentointi](https://github.com/selsama/ot-harjoitus/tree/master/dokumentointi)
+## Dokumentaatio
 
-[Projekti](https://github.com/selsama/ot-harjoitus/tree/master/SnakeGame)
+[Vaatimusmäärittely](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/vaatimusmaarittely.md)
 
-## Laskarit
+[Työaikakirjanpito](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/tyoaikakirjanpito.md)
 
-[Laskarit](https://github.com/selsama/ot-harjoitus/tree/master/laskarit)
+## Projekti
 
-[Viikko1](https://github.com/selsama/ot-harjoitus/tree/master/laskarit/viikko1)
+[SnakeGame](https://github.com/selsama/ot-harjoitus/tree/master/SnakeGame)
 
-[Viikko2](https://github.com/selsama/ot-harjoitus/tree/master/laskarit/viikko2)
 
