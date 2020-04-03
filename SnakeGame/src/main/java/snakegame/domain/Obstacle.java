@@ -17,6 +17,11 @@ public class Obstacle implements Crashable {
         this.obstacle = new Rectangle(x, y, 10, 10);
     }
     
+    public void setPosition(int x, int y) {
+        obstacle.setTranslateX(x);
+        obstacle.setTranslateY(y);
+    }
+    
     public Shape getShape(){
         return obstacle;
     }
