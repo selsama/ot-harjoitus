@@ -9,8 +9,16 @@ import javafx.scene.shape.*;
  *
  * @author salmison
  */
-public interface Crashable { 
+public class Obstacle implements Crashable {
     
-    Shape getShape();
+    private Rectangle obstacle;
+    
+    public Obstacle(int x, int y) {
+        this.obstacle = new Rectangle(x, y, 10, 10);
+    }
+    
+    public Shape getShape(){
+        return obstacle;
+    }
     
 }

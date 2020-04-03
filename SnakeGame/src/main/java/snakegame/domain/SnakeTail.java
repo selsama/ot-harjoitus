@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package snakegame.domain;
-
+import javafx.scene.shape.*;
 /**
  *
  * @author salmison

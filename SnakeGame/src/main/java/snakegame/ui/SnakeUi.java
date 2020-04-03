@@ -7,6 +7,7 @@ package snakegame.ui;
 
 import snakegame.domain.*;
 
+import java.util.*;
 import javafx.application.Application;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
@@ -23,13 +24,21 @@ public class SnakeUi extends Application {
     
     private Scene gameScene;
     private Scene startScene;
-    private boolean gameIsPaused;
+    private gameHandler game;
+    public int SCENEWIDTH;
+    public int SCENEHEIGHT;
+    
+    @Override
+    public void init() {
+        SCENEWIDTH = 600;
+        SCENEHEIGHT = 600;
+        
+        game = new gameHandler(SCENEWIDTH, SCENEHEIGHT);
+    }
     
     @Override
     public void start(Stage primaryStage) throws Exception {
         // create startScene
-        gameIsPaused=true;
-        
         BorderPane startPane = new BorderPane();
         Button newGameButton = new Button("new game");
         Button settingsButton = new Button("settings");
@@ -44,14 +53,20 @@ public class SnakeUi extends Application {
 
         startPane.setCenter(startBox);
         
-        startScene = new Scene(startPane,600,600);
+        startScene = new Scene(startPane, SCENEWIDTH, SCENEHEIGHT);
         
         // create gameScene
         Pane gamePane = new Pane();
         
-        SnakeHead snake = new SnakeHead(300,300);
-        gamePane.getChildren().add(snake.getHead());
-        gameScene = new Scene(gamePane,600,600);
+        List<Obstacle> obstacles = game.getObstacles();
+        for(Obstacle obs: obstacles) {
+            gamePane.getChildren().add(obs.getShape());
+        }
+        
+        SnakeHead snake = new SnakeHead(SCENEWIDTH / 2, SCENEHEIGHT / 2);
+        gamePane.getChildren().addAll(snake.getShape());
+        
+        gameScene = new Scene(gamePane, SCENEWIDTH, SCENEHEIGHT);
         
         gameScene.setOnKeyPressed(event ->{
             if(event.getCode()== KeyCode.LEFT){
@@ -67,18 +82,22 @@ public class SnakeUi extends Application {
                 snake.turnDown();
             }
             if(event.getCode() == KeyCode.P){
-                gameIsPaused=true;
+                game.triggerPause();
             }
             else{
-                gameIsPaused=false;
+                game.setOffPause();
             }
         });
+        
         
         new AnimationTimer(){
             @Override
             public void handle(long moment){
-                if(!gameIsPaused){
+                if(!game.PAUSED){
                     snake.move();
+                }
+                if(game.gameOver(snake)) {
+                    stop();
                 }
             }
         }.start();

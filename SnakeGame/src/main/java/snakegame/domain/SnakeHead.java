@@ -17,7 +17,7 @@ public class SnakeHead implements Crashable {
         this.head = new Rectangle(x, y, 10, 20);
     }
     
-    public Rectangle getHead() {
+    public Rectangle getShape() {
         return head;
     }
     
@@ -61,8 +61,10 @@ public class SnakeHead implements Crashable {
         }
     }
     
-    @Override
-    public void crash() {
+
+    public boolean crash(Crashable other) {
         //TODO how
+        Shape collision = Shape.intersect(head, other.getShape());
+        return collision.getBoundsInLocal().getWidth() != -1;
     }
 }
