@@ -6,12 +6,18 @@ Sovellus on matopeli, jossa madon häntä muodostaa jatkuvan kiinteän esteen ru
 
 ## Käyttöliittymäluonnos
 
-Sovelluksessa on asetus/valikkoikkuna ja peli-ikkuna, joiden välillä voi liikkua.
+Sovelluksessa on valikko(aloitus)näkymä, pelinäkymä, asetusnäkymä ja parhaat tulokset -näkymä, joiden välillä voi liikkua klikkaamalla nappuloita.
 
 ## Toiminnallisuus
 
-- matoa liikutellaan nuolinäppäimillä
-- madon värin voi vaihtaa
+- matoa ohjataan nuolinäppäimillä // DONE
+- mato liikkuu, kun peli on käynnissä // DONE
+- pelin voi pausettaa näppäimellä P // DONE
+- peliruutua ympäröivät seinät, johon törmääminen madolla lopettaa pelin // DONE
+- mato jättää jälkeensä häntää, joka pysyy paikallaan, ja johon törmääminen lopettaa pelin
+- pelin loputtua näkymä vaihtuu, näyttää pisteet ja nappulan josta voi aloittaa uuden pelin
+- pelinäkymä näyttää pisteet pelin ollessa käynnissä (?)
+- madon värin voi valita asetusnäkymässä
 - sovellus ylläpitää ennätysajoista listaa
 
 ## Toiminnallisuus - lisäideat jatkoon/jos aikaa riittää
