@@ -13,56 +13,56 @@ public class SnakeHead implements Crashable {
     
     private Rectangle head;
     
-    public SnakeHead(double x, double y){
-        this.head= new Rectangle(x,y,10,20);
+    public SnakeHead(double x, double y) {
+        this.head = new Rectangle(x, y, 10, 20);
     }
     
-    public Rectangle getHead(){
+    public Rectangle getHead() {
         return head;
     }
     
-    public void turnLeft(){
-        if(head.getRotate()!=+90){
+    public void turnLeft() {
+        if (head.getRotate() != 90) {
             head.setRotate(-90);
         }
     }
     
-    public void turnRight(){
-        if(head.getRotate()!=-90){
+    public void turnRight() {
+        if (head.getRotate() != -90) {
             head.setRotate(90);
         }
     }
     
-    public void turnUp(){
-        if(head.getRotate()!=180){
+    public void turnUp() {
+        if (head.getRotate() != 180) {
             head.setRotate(0);
         }
     }
     
-    public void turnDown(){
-        if(head.getRotate()!=0){
+    public void turnDown() {
+        if (head.getRotate() != 0) {
             head.setRotate(180);
         }
     }
     
-    public void move(){
+    public void move() {
         double dir = head.getRotate();
-        if(dir==0){
-            this.head.setTranslateY(head.getTranslateY()-0.5);
+        if (dir == 0) {
+            this.head.setTranslateY(head.getTranslateY() - 0.5);
         }
-        if(dir==90){
-            this.head.setTranslateX(head.getTranslateX()+0.5);
+        if (dir == 90) {
+            this.head.setTranslateX(head.getTranslateX() + 0.5);
         }
-        if(dir==180){
-            this.head.setTranslateY(head.getTranslateY()+0.5);
+        if (dir == 180) {
+            this.head.setTranslateY(head.getTranslateY() + 0.5);
         }
-        if(dir==-90){
-            this.head.setTranslateX(head.getTranslateX()-0.5);
+        if (dir == -90) {
+            this.head.setTranslateX(head.getTranslateX() - 0.5);
         }
     }
     
     @Override
-    public void crash(){
+    public void crash() {
         //TODO how
     }
 }
