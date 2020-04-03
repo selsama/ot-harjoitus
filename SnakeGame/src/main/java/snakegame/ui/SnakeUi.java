@@ -23,10 +23,13 @@ public class SnakeUi extends Application {
     
     private Scene gameScene;
     private Scene startScene;
+    private boolean gameIsPaused;
     
     @Override
     public void start(Stage primaryStage) throws Exception {
         // create startScene
+        gameIsPaused=true;
+        
         BorderPane startPane = new BorderPane();
         Button newGameButton = new Button("new game");
         Button settingsButton = new Button("settings");
@@ -63,9 +66,13 @@ public class SnakeUi extends Application {
             if(event.getCode()==KeyCode.DOWN){
                 snake.turnDown();
             }
+            if(event.getCode() == KeyCode.P){
+                gameIsPaused=true;
+            }
+            else{
+                gameIsPaused=false;
+            }
         });
-        
-        boolean gameIsPaused=false; //where should this go? perhaps a class under the domain that took care of running the game?
         
         new AnimationTimer(){
             @Override
