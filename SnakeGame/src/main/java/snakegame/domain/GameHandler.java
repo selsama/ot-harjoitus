@@ -11,11 +11,11 @@ import javafx.scene.shape.*;
  *
  * @author salmison
  */
-public class gameHandler {
+public class GameHandler {
     public boolean PAUSED;
     private List<Obstacle> obstacles;
     
-    public gameHandler(int width, int height) {
+    public GameHandler(int width, int height) {
         PAUSED = true;
         obstacles = new ArrayList<>();
         for(int i=0; i<width; i+=10) {

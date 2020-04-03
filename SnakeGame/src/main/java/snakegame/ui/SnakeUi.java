@@ -24,7 +24,7 @@ public class SnakeUi extends Application {
     
     private Scene gameScene;
     private Scene startScene;
-    private gameHandler game;
+    private GameHandler game;
     public int SCENEWIDTH;
     public int SCENEHEIGHT;
     
@@ -33,7 +33,7 @@ public class SnakeUi extends Application {
         SCENEWIDTH = 600;
         SCENEHEIGHT = 600;
         
-        game = new gameHandler(SCENEWIDTH, SCENEHEIGHT);
+        game = new GameHandler(SCENEWIDTH, SCENEHEIGHT);
     }
     
     @Override
