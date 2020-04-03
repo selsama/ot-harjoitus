@@ -22,7 +22,7 @@ public class Obstacle implements Crashable {
         obstacle.setTranslateY(y);
     }
     
-    public Shape getShape(){
+    public Shape getShape() {
         return obstacle;
     }
     

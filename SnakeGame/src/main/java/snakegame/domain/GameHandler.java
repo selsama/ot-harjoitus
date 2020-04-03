@@ -12,17 +12,17 @@ import javafx.scene.shape.*;
  * @author salmison
  */
 public class GameHandler {
-    public boolean PAUSED;
+    public boolean paused;
     private List<Obstacle> obstacles;
     
     public GameHandler(int width, int height) {
-        PAUSED = true;
+        paused = true;
         obstacles = new ArrayList<>();
-        for(int i=0; i<width; i+=10) {
-            obstacles.add(new Obstacle(i,0));
+        for (int i = 0; i < width; i += 10) {
+            obstacles.add(new Obstacle(i, 0));
             obstacles.add(new Obstacle(i, height - 10));
         }
-        for(int i = 0; i< height; i+=10) {
+        for (int i = 0; i < height; i += 10) {
             obstacles.add(new Obstacle(0, i));
             obstacles.add(new Obstacle(width - 10, i));
         }
@@ -33,8 +33,8 @@ public class GameHandler {
     }
     
     public boolean gameOver(SnakeHead snake) {
-        for(Obstacle obs: obstacles) {
-            if(snake.crash(obs)){
+        for (Obstacle obs: obstacles) {
+            if (snake.crash(obs)) {
                 return true;
             }
         }
@@ -43,14 +43,14 @@ public class GameHandler {
     
     //managing whether game is on
     public void setOnPause() {
-        PAUSED = true;
+        paused = true;
     }
     
     public void setOffPause() {
-        PAUSED = false;
+        paused = false;
     }
     
     public void triggerPause() {
-        PAUSED = !PAUSED;
+        paused = !paused;
     }
 }

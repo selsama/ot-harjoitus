@@ -93,7 +93,7 @@ public class SnakeUi extends Application {
         new AnimationTimer(){
             @Override
             public void handle(long moment){
-                if(!game.PAUSED){
+                if(!game.paused){
                     snake.move();
                 }
                 if(game.gameOver(snake)) {
