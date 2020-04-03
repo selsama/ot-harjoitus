@@ -6,3 +6,6 @@ Pvm | Tunnit | Aihe
 29.3. | 4   | Projektin aloitus, graafisen käyttöliittymän perusjuttujen mieleen palauttelua sekä jar- ja javafx tappelua
 30.3. | 2   | Rakenteen ja toteutuksen pohdinta, pieniä muutoksia itse projektiin
 31.3. | 2   | SnakeHead-luokan toteutus (pään kääntyminen ja liikkuminen), testejä
+3.4.  | 3.5 | Checkstylen käyttöönotto, GameHandler-luokan lisääminen, pausetus, pelialueen seinien luonti, testejä niille
+
+YHTEENSÄ 12 H
