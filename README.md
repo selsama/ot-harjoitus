@@ -38,7 +38,7 @@ Testikattavuusraportin luonti:
 
 Raporttia voi tarkastella avaamalla selaimella tiedoston *target/site/jacoco/index.html*
 
-Checkstyle-testien suoritus:
+Checkstyle-tarkistus:
 
     mvn jxr:jxr checkstyle:checkstyle
     
