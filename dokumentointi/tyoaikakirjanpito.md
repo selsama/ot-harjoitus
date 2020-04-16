@@ -7,5 +7,6 @@ Pvm | Tunnit | Aihe
 30.3. | 2   | Rakenteen ja toteutuksen pohdinta, pieniä muutoksia itse projektiin
 31.3. | 2   | SnakeHead-luokan toteutus (pään kääntyminen ja liikkuminen), testejä
 3.4.  | 3.5 | Checkstylen käyttöönotto, GameHandler-luokan lisääminen, pausetus, pelialueen seinien luonti, testejä niille
+16.4. | 1   | Refaktorointia (SnakeHead:in hallinnointi siirretty GameHandleriin), pisteenlasku
 
-YHTEENSÄ 12 H
+YHTEENSÄ 13 H
