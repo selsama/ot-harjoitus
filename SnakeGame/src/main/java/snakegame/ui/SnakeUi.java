@@ -58,13 +58,17 @@ public class SnakeUi extends Application {
         // create gameScene
         Pane gamePane = new Pane();
         
+        Label pointCounter = new Label("Points: "+game.getPoints());
+        pointCounter.setTranslateY(10);
+        pointCounter.setTranslateX(10);
+        
         List<Obstacle> obstacles = game.getObstacles();
         for(Obstacle obs: obstacles) {
             gamePane.getChildren().add(obs.getShape());
         }
         
 
-        gamePane.getChildren().addAll(game.getSnake().getShape());
+        gamePane.getChildren().addAll(game.getSnake().getShape(),pointCounter);
         
         gameScene = new Scene(gamePane, SCENEWIDTH, SCENEHEIGHT);
         
@@ -80,6 +84,8 @@ public class SnakeUi extends Application {
             public void handle(long moment){
                 if(!game.paused){
                     game.moveSnake();
+                    game.addPoints();
+                    pointCounter.setText("Points: "+game.getPoints());
                 }
                 if(game.gameOver()) {
                     stop();

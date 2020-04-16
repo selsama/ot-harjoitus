@@ -16,6 +16,7 @@ public class GameHandler {
     private boolean over;
     private List<Obstacle> obstacles;
     private SnakeHead snake;
+    private int points;
     
     public GameHandler(int width, int height) {
         paused = true;
@@ -30,6 +31,7 @@ public class GameHandler {
             obstacles.add(new Obstacle(width - 10, i));
         }
         snake = new SnakeHead(width / 2, height / 2);
+        points = 0;
     }
     
     public List getObstacles() {
@@ -69,7 +71,7 @@ public class GameHandler {
     }
     
     public boolean handleKeyPressed(KeyCode code) {
-        if(!paused && !over) {
+        if(!over) {
             if(code == KeyCode.LEFT) {
                 snake.turnLeft();
             }
@@ -88,6 +90,15 @@ public class GameHandler {
             return false;
         }
         return true;
+    }
+    
+    //points
+    public int getPoints() {
+        return points;
+    }
+    
+    public void addPoints() {
+        points++;
     }
     
 }
