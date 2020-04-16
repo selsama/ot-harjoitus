@@ -6,7 +6,7 @@
 package snakegame.domain;
 
 import java.util.*;
-import javafx.scene.shape.*;
+import javafx.scene.input.KeyCode;
 /**
  *
  * @author salmison
@@ -14,6 +14,7 @@ import javafx.scene.shape.*;
 public class GameHandler {
     public boolean paused;
     private List<Obstacle> obstacles;
+    private SnakeHead snake;
     
     public GameHandler(int width, int height) {
         paused = true;
@@ -26,13 +27,14 @@ public class GameHandler {
             obstacles.add(new Obstacle(0, i));
             obstacles.add(new Obstacle(width - 10, i));
         }
+        snake = new SnakeHead(width / 2, height / 2);
     }
     
     public List getObstacles() {
         return obstacles;
     }
     
-    public boolean gameOver(SnakeHead snake) {
+    public boolean gameOver() {
         for (Obstacle obs: obstacles) {
             if (snake.crash(obs)) {
                 return true;
@@ -52,5 +54,34 @@ public class GameHandler {
     
     public void triggerPause() {
         paused = !paused;
+    }
+    
+    //Snake handling
+    public SnakeHead getSnake() {
+        return snake;
+    }
+    
+    public void moveSnake() {
+        snake.move();
+    }
+    
+    public boolean handleKeyPressed(KeyCode code) {
+            if(code == KeyCode.LEFT) {
+                snake.turnLeft();
+            }
+            if(code == KeyCode.RIGHT) {
+                snake.turnRight();
+            }
+            if(code == KeyCode.UP) {
+                snake.turnUp();
+            }
+            if(code == KeyCode.DOWN) {
+                snake.turnDown();
+            }
+            if(code == KeyCode.P) {
+                this.triggerPause();
+                return false;
+            }
+            return true;
     }
 }

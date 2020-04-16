@@ -63,7 +63,6 @@ public class SnakeHead implements Crashable {
     
 
     public boolean crash(Crashable other) {
-        //TODO how
         Shape collision = Shape.intersect(head, other.getShape());
         return collision.getBoundsInLocal().getWidth() != -1;
     }

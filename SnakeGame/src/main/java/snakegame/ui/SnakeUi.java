@@ -63,28 +63,12 @@ public class SnakeUi extends Application {
             gamePane.getChildren().add(obs.getShape());
         }
         
-        SnakeHead snake = new SnakeHead(SCENEWIDTH / 2, SCENEHEIGHT / 2);
-        gamePane.getChildren().addAll(snake.getShape());
+        gamePane.getChildren().addAll(game.getSnake().getShape());
         
         gameScene = new Scene(gamePane, SCENEWIDTH, SCENEHEIGHT);
         
         gameScene.setOnKeyPressed(event ->{
-            if(event.getCode()== KeyCode.LEFT){
-                snake.turnLeft();
-            }
-            if(event.getCode()==KeyCode.RIGHT){
-                snake.turnRight();
-            }
-            if(event.getCode()==KeyCode.UP){
-                snake.turnUp();
-            }
-            if(event.getCode()==KeyCode.DOWN){
-                snake.turnDown();
-            }
-            if(event.getCode() == KeyCode.P){
-                game.triggerPause();
-            }
-            else{
+            if(game.handleKeyPressed(event.getCode())) {
                 game.setOffPause();
             }
         });
@@ -94,9 +78,9 @@ public class SnakeUi extends Application {
             @Override
             public void handle(long moment){
                 if(!game.paused){
-                    snake.move();
+                    game.moveSnake();
                 }
-                if(game.gameOver(snake)) {
+                if(game.gameOver()) {
                     stop();
                 }
             }
