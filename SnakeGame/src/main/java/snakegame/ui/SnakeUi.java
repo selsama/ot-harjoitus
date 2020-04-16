@@ -63,6 +63,7 @@ public class SnakeUi extends Application {
             gamePane.getChildren().add(obs.getShape());
         }
         
+
         gamePane.getChildren().addAll(game.getSnake().getShape());
         
         gameScene = new Scene(gamePane, SCENEWIDTH, SCENEHEIGHT);

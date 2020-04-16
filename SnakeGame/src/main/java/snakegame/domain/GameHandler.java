@@ -13,11 +13,13 @@ import javafx.scene.input.KeyCode;
  */
 public class GameHandler {
     public boolean paused;
+    private boolean over;
     private List<Obstacle> obstacles;
     private SnakeHead snake;
     
     public GameHandler(int width, int height) {
         paused = true;
+        over = false;
         obstacles = new ArrayList<>();
         for (int i = 0; i < width; i += 10) {
             obstacles.add(new Obstacle(i, 0));
@@ -37,6 +39,7 @@ public class GameHandler {
     public boolean gameOver() {
         for (Obstacle obs: obstacles) {
             if (snake.crash(obs)) {
+                over = true;
                 return true;
             }
         }
@@ -66,6 +69,7 @@ public class GameHandler {
     }
     
     public boolean handleKeyPressed(KeyCode code) {
+        if(!paused && !over) {
             if(code == KeyCode.LEFT) {
                 snake.turnLeft();
             }
@@ -78,10 +82,12 @@ public class GameHandler {
             if(code == KeyCode.DOWN) {
                 snake.turnDown();
             }
-            if(code == KeyCode.P) {
-                this.triggerPause();
-                return false;
-            }
-            return true;
+        }
+        if(code == KeyCode.P) {
+            this.triggerPause();
+            return false;
+        }
+        return true;
     }
+    
 }
