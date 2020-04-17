@@ -16,12 +16,21 @@ public class GameHandler {
     private boolean over;
     private List<Obstacle> obstacles;
     private SnakeHead snake;
+    private HashMap<KeyCode, String> snakeControls;
     private int points;
     
     public GameHandler(int width, int height) {
         paused = true;
         over = false;
         obstacles = new ArrayList<>();
+        this.makeWalls(width, height);
+        snake = new SnakeHead(width / 2, height / 2);
+        snakeControls = new HashMap<>();
+        this.setSnakeControls(snakeControls, KeyCode.UP, KeyCode.RIGHT, KeyCode.DOWN, KeyCode.LEFT);
+        points = 0;
+    }
+    
+    private void makeWalls(int width, int height) {
         for (int i = 0; i < width; i += 10) {
             obstacles.add(new Obstacle(i, 0));
             obstacles.add(new Obstacle(i, height - 10));
@@ -30,8 +39,6 @@ public class GameHandler {
             obstacles.add(new Obstacle(0, i));
             obstacles.add(new Obstacle(width - 10, i));
         }
-        snake = new SnakeHead(width / 2, height / 2);
-        points = 0;
     }
     
     public List getObstacles() {
@@ -66,23 +73,36 @@ public class GameHandler {
         return snake;
     }
     
+    public void setSnakeControls(HashMap<KeyCode, String> controls, KeyCode up, KeyCode right, KeyCode down, KeyCode left) {
+        controls.put(up, "UP");
+        controls.put(right, "RIGHT");
+        controls.put(down, "DOWN");
+        controls.put(left, "LEFT");
+    }
+    
     public void moveSnake() {
         snake.move();
     }
     
+    public void turnSnake(String dir) {
+        if (dir.equals("UP")) {
+            snake.turnUp();
+        }
+        if (dir.equals("RIGHT")) {
+            snake.turnRight();
+        }
+        if (dir.equals("DOWN")) {
+            snake.turnDown();
+        }
+        if (dir.equals("LEFT")) {
+            snake.turnLeft();
+        }
+    }
+    
     public boolean handleKeyPressed(KeyCode code) {
         if (!over) {
-            if (code == KeyCode.LEFT) {
-                snake.turnLeft();
-            }
-            if (code == KeyCode.RIGHT) {
-                snake.turnRight();
-            }
-            if (code == KeyCode.UP) {
-                snake.turnUp();
-            }
-            if (code == KeyCode.DOWN) {
-                snake.turnDown();
+            if (snakeControls.containsKey(code)) {
+                this.turnSnake(snakeControls.get(code));
             }
         }
         if (code == KeyCode.P) {
@@ -98,7 +118,7 @@ public class GameHandler {
     }
     
     public void addPoints(int points) {
-        this.points+=points;
+        this.points += points;
     }
     
 }
