@@ -97,8 +97,8 @@ public class GameHandler {
         return points;
     }
     
-    public void addPoints() {
-        points++;
+    public void addPoints(int points) {
+        this.points+=points;
     }
     
 }

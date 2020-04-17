@@ -84,7 +84,7 @@ public class SnakeUi extends Application {
             public void handle(long moment){
                 if(!game.paused){
                     game.moveSnake();
-                    game.addPoints();
+                    game.addPoints(1);
                     pointCounter.setText("Points: "+game.getPoints());
                 }
                 if(game.gameOver()) {
