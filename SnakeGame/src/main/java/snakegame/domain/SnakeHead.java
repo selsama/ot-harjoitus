@@ -48,16 +48,16 @@ public class SnakeHead implements Crashable {
     public void move() {
         double dir = head.getRotate();
         if (dir == 0) {
-            this.head.setTranslateY(head.getTranslateY() - 0.5);
+            this.head.setY(head.getY() - 0.5);
         }
         if (dir == 90) {
-            this.head.setTranslateX(head.getTranslateX() + 0.5);
+            this.head.setX(head.getX() + 0.5);
         }
         if (dir == 180) {
-            this.head.setTranslateY(head.getTranslateY() + 0.5);
+            this.head.setY(head.getY() + 0.5);
         }
         if (dir == -90) {
-            this.head.setTranslateX(head.getTranslateX() - 0.5);
+            this.head.setX(head.getX() - 0.5);
         }
     }
     
