@@ -71,21 +71,21 @@ public class GameHandler {
     }
     
     public boolean handleKeyPressed(KeyCode code) {
-        if(!over) {
-            if(code == KeyCode.LEFT) {
+        if (!over) {
+            if (code == KeyCode.LEFT) {
                 snake.turnLeft();
             }
-            if(code == KeyCode.RIGHT) {
+            if (code == KeyCode.RIGHT) {
                 snake.turnRight();
             }
-            if(code == KeyCode.UP) {
+            if (code == KeyCode.UP) {
                 snake.turnUp();
             }
-            if(code == KeyCode.DOWN) {
+            if (code == KeyCode.DOWN) {
                 snake.turnDown();
             }
         }
-        if(code == KeyCode.P) {
+        if (code == KeyCode.P) {
             this.triggerPause();
             return false;
         }
