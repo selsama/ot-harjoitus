@@ -89,68 +89,66 @@ public class SnakeHeadTest {
     
     @Test
     public void snakeHeadMoves(){
-        double startX=head.getShape().getTranslateX();
-        double startY=head.getShape().getTranslateY();
+        double startX=head.getShape().getX();
+        double startY=head.getShape().getY();
         head.move();
-        assertTrue(startX!=head.getShape().getTranslateX()||startY!=head.getShape().getTranslateY());
+        assertTrue(startX!=head.getShape().getX() || startY!=head.getShape().getY());
     }
     
     @Test
     public void snakeHeadMovesRight(){
         head.getShape().setRotate(90);
-        double start = head.getShape().getTranslateX();
+        double start = head.getShape().getX();
         head.move();
-        assertTrue(start<head.getShape().getTranslateX());
+        assertTrue(start<head.getShape().getX());
     }
     
     @Test
     public void snakeHeadMovesLeft(){
         head.getShape().setRotate(-90);
-        double start = head.getShape().getTranslateX();
+        double start = head.getShape().getX();
         head.move();
-        assertTrue(start>head.getShape().getTranslateX());
+        assertTrue(start>head.getShape().getX());
     }
     
     @Test
     public void snakeHeadMovesUp(){
         head.getShape().setRotate(0);
-        double start = head.getShape().getTranslateY();
+        double start = head.getShape().getY();
         head.move();
-        assertTrue(start>head.getShape().getTranslateY());
+        assertTrue(start>head.getShape().getY());
     }
     
     @Test
     public void snakeHeadMovesDown(){
         head.getShape().setRotate(180);
-        double start = head.getShape().getTranslateY();
+        double start = head.getShape().getY();
         head.move();
-        assertTrue(start<head.getShape().getTranslateY());
+        assertTrue(start<head.getShape().getY());
     }
     
     @Test
     public void snakeHeadDoesNotMoveVerticallyWhenGoingHorizontally(){
-        double start = head.getShape().getTranslateY();
+        double start = head.getShape().getY();
         head.getShape().setRotate(90);
         head.move();
         head.getShape().setRotate(-90);
         head.move();
         head.move();
-        assertEquals(start,head.getShape().getTranslateY(),0.01);
+        assertEquals(start,head.getShape().getY(),0.01);
     }
     
     @Test
     public void snakeHeadDoesNotMoveHorizontallyWhenGoingVertically(){
-        double start = head.getShape().getTranslateX();
+        double start = head.getShape().getX();
         head.getShape().setRotate(0);
         head.move();
         head.getShape().setRotate(180);
         head.move();
         head.move();
-        assertEquals(start,head.getShape().getTranslateX(),0.01);
+        assertEquals(start,head.getShape().getX(),0.01);
     }    
-//     @Test
-//     public void snakeHeadBeginsInMiddle() {
-//     }
+
 //     
 //     @Test
 //     public void snakeHeadDoesNotMoveRightAway(){

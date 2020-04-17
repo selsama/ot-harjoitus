@@ -47,5 +47,18 @@ public class GameHandlerSnakeTest {
         game.moveSnake();
         assertFalse(Math.abs(x - snake.getX()) < epsilon && Math.abs(y - snake.getY()) < epsilon);
     }
+    
+    @Test
+    public void turnSnakeTurnsSnake() {
+        Rectangle snake = game.getSnake().getShape();
+        game.turnSnake("RIGHT");
+        assertEquals("Does not turn right", 90.0, snake.getRotate(), 0.001);
+        game.turnSnake("DOWN");
+        assertEquals("Does not turn down", 180.0, snake.getRotate(), 0.001);
+        game.turnSnake("LEFT");
+        assertEquals("Does not turn left", -90.0, snake.getRotate(), 0.001);
+        game.turnSnake("UP");
+        assertEquals("Does not turn up", 0.0, snake.getRotate(), 0.001);
+    }
 
 }
