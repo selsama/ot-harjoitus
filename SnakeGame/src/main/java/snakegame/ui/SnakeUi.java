@@ -80,7 +80,7 @@ public class SnakeUi extends Application {
         new AnimationTimer(){
             @Override
             public void handle(long moment){
-                if(moment % 10 == 0) {
+                if(moment % 5 == 0) {
                 if(!game.paused){
                     gamePane.getChildren().add(game.moveSnake());
                     game.addPoints(1);

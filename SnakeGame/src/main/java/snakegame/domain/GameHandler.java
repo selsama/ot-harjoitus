@@ -18,7 +18,7 @@ public class GameHandler {
     private List<Obstacle> obstacles;
     private SnakeHead snake;
     private HashMap<KeyCode, Direction> snakeControls;
-    private HashMap<Integer, ArrayList<SnakeTail>> tailParts;
+    private ArrayList<ArrayList<SnakeTail>> tailParts;
     private int points;
     
     //game initializing
@@ -27,26 +27,25 @@ public class GameHandler {
         over = false;
         obstacles = new ArrayList<>();
         this.makeWalls(width, height);
-        this.makeSnake(width / 2, height / 2);
+        this.makeSnake(width / 2, height / 2, height);
         points = 0;
     }
     
-    private void makeSnake(int x, int y) {
+    private void makeSnake(int x, int y, int height) {
         snake = new SnakeHead(x, y);
         snakeControls = new HashMap<>();
         this.setSnakeControls(snakeControls, KeyCode.UP, KeyCode.RIGHT, KeyCode.DOWN, KeyCode.LEFT);
-        tailParts = new HashMap<>();
+        tailParts = new ArrayList<>();
+        for(int i = 0; i <= height / 10; i++) {
+            tailParts.add(new ArrayList<>());
+        }
     }
     
     private void makeWalls(int width, int height) {
-        for (int i = 0; i < width; i += 10) {
-            obstacles.add(new Obstacle(i, 0));
-            obstacles.add(new Obstacle(i, height - 10));
-        }
-        for (int i = 0; i < height; i += 10) {
-            obstacles.add(new Obstacle(0, i));
-            obstacles.add(new Obstacle(width - 10, i));
-        }
+        obstacles.add(new Obstacle(0, 0, width, 10));
+        obstacles.add(new Obstacle(0, height - 10, width, 10));
+        obstacles.add(new Obstacle(0, 0, 10, height));
+        obstacles.add(new Obstacle(width - 10, 0, 10, height));
     }
     
     //obstacles
@@ -82,10 +81,7 @@ public class GameHandler {
     public Shape moveSnake() {
         snake.move();
         SnakeTail tail = snake.leaveTail();
-//        if(!tailParts.containsKey(tail.getY())) {
-//            tailParts.put(tail.getY(), new ArrayList<>());   
-//        }
-//        tailParts.get(tail.getY()).add(tail);
+        tailParts.get(tail.getY() / 10).add(tail);
         return tail.getShape();
     }
     
@@ -125,15 +121,13 @@ public class GameHandler {
                 return true;
             }
         }
-//        int snakePositionY = (int) snake.getShape().getY();
-//        if(tailParts.containsKey(snakePositionY)) {
-//            for (SnakeTail tail : tailParts.get(snakePositionY)) {
-//                if (snake.crash(tail)) {
-//                    over = true;
-//                    return true;
-//                }
-//            }
-//        }
+        int snakePositionY = (int) snake.getShape().getY();
+        for (SnakeTail tail: tailParts.get(snakePositionY / 10)) {
+            if (snake.crash(tail)) {
+                over = true;
+                return true;
+            }
+        }
         return false;
     }
     
