@@ -17,7 +17,7 @@ public class GameHandler {
     private boolean over;
     private List<Obstacle> obstacles;
     private SnakeHead snake;
-    private HashMap<KeyCode, String> snakeControls;
+    private HashMap<KeyCode, Direction> snakeControls;
     private HashMap<Integer, ArrayList<SnakeTail>> tailParts;
     private int points;
     
@@ -72,34 +72,34 @@ public class GameHandler {
         return snake;
     }
     
-    public void setSnakeControls(HashMap<KeyCode, String> controls, KeyCode up, KeyCode right, KeyCode down, KeyCode left) {
-        controls.put(up, "UP");
-        controls.put(right, "RIGHT");
-        controls.put(down, "DOWN");
-        controls.put(left, "LEFT");
+    public void setSnakeControls(HashMap<KeyCode, Direction> controls, KeyCode up, KeyCode right, KeyCode down, KeyCode left) {
+        controls.put(up, Direction.UP);
+        controls.put(right, Direction.RIGHT);
+        controls.put(down, Direction.DOWN);
+        controls.put(left, Direction.LEFT);
     }
     
     public Shape moveSnake() {
         snake.move();
         SnakeTail tail = snake.leaveTail();
-        if(!tailParts.containsKey(tail.getY())) {
-            tailParts.put(tail.getY(), new ArrayList<>());   
-        }
-        tailParts.get(tail.getY()).add(tail);
+//        if(!tailParts.containsKey(tail.getY())) {
+//            tailParts.put(tail.getY(), new ArrayList<>());   
+//        }
+//        tailParts.get(tail.getY()).add(tail);
         return tail.getShape();
     }
     
-    public void turnSnake(String dir) {
-        if (dir.equals("UP")) {
+    public void turnSnake(Direction dir) {
+        if (dir == Direction.UP) {
             snake.turnUp();
         }
-        if (dir.equals("RIGHT")) {
+        if (dir == Direction.RIGHT) {
             snake.turnRight();
         }
-        if (dir.equals("DOWN")) {
+        if (dir == Direction.DOWN) {
             snake.turnDown();
         }
-        if (dir.equals("LEFT")) {
+        if (dir == Direction.LEFT) {
             snake.turnLeft();
         }
     }
@@ -125,15 +125,15 @@ public class GameHandler {
                 return true;
             }
         }
-        int snakePositionY = (int) snake.getShape().getY();
-        if(tailParts.containsKey(snakePositionY)) {
-            for (SnakeTail tail : tailParts.get(snakePositionY)) {
-                if (snake.crash(tail)) {
-                    over = true;
-                    return true;
-                }
-            }
-        }
+//        int snakePositionY = (int) snake.getShape().getY();
+//        if(tailParts.containsKey(snakePositionY)) {
+//            for (SnakeTail tail : tailParts.get(snakePositionY)) {
+//                if (snake.crash(tail)) {
+//                    over = true;
+//                    return true;
+//                }
+//            }
+//        }
         return false;
     }
     

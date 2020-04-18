@@ -66,7 +66,6 @@ public class SnakeUi extends Application {
         for(Obstacle obs: obstacles) {
             gamePane.getChildren().add(obs.getShape());
         }
-        
 
         gamePane.getChildren().addAll(game.getSnake().getShape(),pointCounter);
         
@@ -81,6 +80,7 @@ public class SnakeUi extends Application {
         new AnimationTimer(){
             @Override
             public void handle(long moment){
+                if(moment % 10 == 0) {
                 if(!game.paused){
                     gamePane.getChildren().add(game.moveSnake());
                     game.addPoints(1);

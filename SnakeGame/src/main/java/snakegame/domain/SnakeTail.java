@@ -13,13 +13,8 @@ public class SnakeTail implements Crashable {
     
     private Rectangle tailPart;
     
-    public SnakeTail(double x, double y, String dir) {
-        if(dir.equals("HOR")) {
-            tailPart = new Rectangle(x, y, 1, 10);
-        }
-        else if(dir.equals("VER")) {
-            tailPart = new Rectangle(x, y, 10, 1);
-        }
+    public SnakeTail(double x, double y) {
+        tailPart = new Rectangle(x, y, 10, 10);
     }
     
     @Override

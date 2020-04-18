@@ -5,13 +5,14 @@
  */
 package domain;
 
+import javafx.scene.control.skin.TextInputControlSkin;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import snakegame.domain.SnakeHead;
+import snakegame.domain.*;
 
 /**
  *
@@ -33,13 +34,12 @@ public class SnakeHeadTest {
     @Test
     public void snakeHeadTurnLeftWorks(){
         head.turnLeft();
-        double end = head.getShape().getRotate();
-        assertEquals(-90,end,0.01);
+        assertEquals(Direction.LEFT, head.getDirection());
     }
     
     @Test
     public void snakeHeadTurnLeftWontTurnIfHeadedRight(){
-        head.getShape().setRotate(90);
+        head.turnRight();
         head.turnLeft();
         assertEquals(90,head.getShape().getRotate(),0.01);
     }

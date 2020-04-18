@@ -12,69 +12,73 @@ import javafx.scene.shape.*;
 public class SnakeHead implements Crashable {
     
     private Rectangle head;
+    private Direction dir;
     
     public SnakeHead(double x, double y) {
-        this.head = new Rectangle(x, y, 10, 20);
+        this.head = new Rectangle(x, y, 10, 10);
+        this.dir = Direction.UP;
     }
     
     public Rectangle getShape() {
         return head;
     }
     
+    public Direction getDirection() {
+        return dir;
+    }
+    
     public void turnLeft() {
-        if (head.getRotate() != 90) {
-            head.setRotate(-90);
+        if (dir != Direction.RIGHT) {
+            dir = Direction.LEFT;
         }
     }
     
     public void turnRight() {
-        if (head.getRotate() != -90) {
-            head.setRotate(90);
+        if (dir != Direction.LEFT) {
+            dir = Direction.RIGHT;
         }
     }
     
     public void turnUp() {
-        if (head.getRotate() != 180) {
-            head.setRotate(0);
+        if (dir != Direction.DOWN) {
+            dir = Direction.UP;
         }
     }
     
     public void turnDown() {
-        if (head.getRotate() != 0) {
-            head.setRotate(180);
+        if (dir != Direction.UP) {
+            dir = Direction.DOWN;
         }
     }
     
     public void move() {
-        double dir = head.getRotate();
-        if (dir == 0) {
-            this.head.setY(head.getY() - 0.5);
+        if (dir == Direction.UP) {
+            this.head.setY(head.getY() - 10);
         }
-        else if (dir == 90) {
-            this.head.setX(head.getX() + 0.5);
+        else if (dir == Direction.RIGHT) {
+            this.head.setX(head.getX() + 10);
         }
-        else if (dir == 180) {
-            this.head.setY(head.getY() + 0.5);
+        else if (dir == Direction.DOWN) {
+            this.head.setY(head.getY() + 10);
         }
-        else if (dir == -90) {
-            this.head.setX(head.getX() - 0.5);
+        else if (dir == Direction.LEFT) {
+            this.head.setX(head.getX() - 10);
         }
     }
     
     public SnakeTail leaveTail() {
-        double dir = head.getRotate();
         SnakeTail tail = null;
-        if (dir == 0) {
-            tail = new SnakeTail(head.getX(), head.getY() + 10, "VER");
+        if (dir == Direction.UP) {
+            tail = new SnakeTail(head.getX(), head.getY() + 10);
         }
-        else if (dir == 90) {
-            tail = new SnakeTail(head.getX() - 5, head.getY() + 5, "HOR");
+        else if (dir == Direction.RIGHT) {
+            tail = new SnakeTail(head.getX() - 10, head.getY());
         }
-        else if (dir == 180) {
-            tail = new SnakeTail(head.getX(), head.getY() - 1, "VER");
+        else if (dir == Direction.DOWN) {
+            tail = new SnakeTail(head.getX(), head.getY() - 10);
         }
-        else if (dir == -90) {
-            tail = new SnakeTail(head.getX() + 14, head.getY() + 5, "HOR");
+        else if (dir == Direction.LEFT) {
+            tail = new SnakeTail(head.getX() + 10, head.getY());
         }
         return tail;
     }
