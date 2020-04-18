@@ -23,6 +23,10 @@ public class SnakeHead implements Crashable {
         return head;
     }
     
+    public void setDirection(Direction dir) {
+        this.dir = dir; 
+    }
+    
     public Direction getDirection() {
         return dir;
     }
