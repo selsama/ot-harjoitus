@@ -78,12 +78,11 @@ public class SnakeUi extends Application {
             }
         });
         
-        
         new AnimationTimer(){
             @Override
             public void handle(long moment){
                 if(!game.paused){
-                    game.moveSnake();
+                    gamePane.getChildren().add(game.moveSnake());
                     game.addPoints(1);
                     pointCounter.setText("Points: "+game.getPoints());
                 }

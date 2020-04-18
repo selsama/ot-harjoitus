@@ -50,18 +50,35 @@ public class SnakeHead implements Crashable {
         if (dir == 0) {
             this.head.setY(head.getY() - 0.5);
         }
-        if (dir == 90) {
+        else if (dir == 90) {
             this.head.setX(head.getX() + 0.5);
         }
-        if (dir == 180) {
+        else if (dir == 180) {
             this.head.setY(head.getY() + 0.5);
         }
-        if (dir == -90) {
+        else if (dir == -90) {
             this.head.setX(head.getX() - 0.5);
         }
     }
     
-
+    public SnakeTail leaveTail() {
+        double dir = head.getRotate();
+        SnakeTail tail = null;
+        if (dir == 0) {
+            tail = new SnakeTail(head.getX(), head.getY() + 10, "VER");
+        }
+        else if (dir == 90) {
+            tail = new SnakeTail(head.getX() - 5, head.getY() + 5, "HOR");
+        }
+        else if (dir == 180) {
+            tail = new SnakeTail(head.getX(), head.getY() - 1, "VER");
+        }
+        else if (dir == -90) {
+            tail = new SnakeTail(head.getX() + 14, head.getY() + 5, "HOR");
+        }
+        return tail;
+    }
+    
     public boolean crash(Crashable other) {
         Shape collision = Shape.intersect(head, other.getShape());
         return collision.getBoundsInLocal().getWidth() != -1;
