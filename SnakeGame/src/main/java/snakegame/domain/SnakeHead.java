@@ -58,14 +58,11 @@ public class SnakeHead implements Crashable {
     public void move() {
         if (dir == Direction.UP) {
             this.head.setY(head.getY() - 10);
-        }
-        else if (dir == Direction.RIGHT) {
+        } else if (dir == Direction.RIGHT) {
             this.head.setX(head.getX() + 10);
-        }
-        else if (dir == Direction.DOWN) {
+        } else if (dir == Direction.DOWN) {
             this.head.setY(head.getY() + 10);
-        }
-        else if (dir == Direction.LEFT) {
+        } else if (dir == Direction.LEFT) {
             this.head.setX(head.getX() - 10);
         }
     }
@@ -74,14 +71,11 @@ public class SnakeHead implements Crashable {
         SnakeTail tail = null;
         if (dir == Direction.UP) {
             tail = new SnakeTail(head.getX(), head.getY() + 10);
-        }
-        else if (dir == Direction.RIGHT) {
+        } else if (dir == Direction.RIGHT) {
             tail = new SnakeTail(head.getX() - 10, head.getY());
-        }
-        else if (dir == Direction.DOWN) {
+        } else if (dir == Direction.DOWN) {
             tail = new SnakeTail(head.getX(), head.getY() - 10);
-        }
-        else if (dir == Direction.LEFT) {
+        } else if (dir == Direction.LEFT) {
             tail = new SnakeTail(head.getX() + 10, head.getY());
         }
         return tail;

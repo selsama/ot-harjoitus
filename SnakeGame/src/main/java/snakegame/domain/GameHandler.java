@@ -36,7 +36,7 @@ public class GameHandler {
         snakeControls = new HashMap<>();
         this.setSnakeControls(snakeControls, KeyCode.UP, KeyCode.RIGHT, KeyCode.DOWN, KeyCode.LEFT);
         tailParts = new ArrayList<>();
-        for(int i = 0; i <= height / 10; i++) {
+        for (int i = 0; i <= height / 10; i++) {
             tailParts.add(new ArrayList<>());
         }
     }
