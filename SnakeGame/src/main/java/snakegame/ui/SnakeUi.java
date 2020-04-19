@@ -89,6 +89,7 @@ public class SnakeUi extends Application {
                 if(game.gameOver()) {
                     stop();
                 }
+                }
             }
         }.start();
         
