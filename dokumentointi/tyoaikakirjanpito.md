@@ -10,5 +10,7 @@ Pvm | Tunnit | Aihe
 16.4. | 1   | Refaktorointia (SnakeHead:in hallinnointi siirretty GameHandleriin), pisteenlasku
 17.4. | 3   | Lisää refaktorointia (GameHandlerin rakennetta paranneltu), checkstyle korjauksia, uusia testejä GameHandlerille
 18.4. | 4   | Hännän aloitus, ongelmia AnimationTimerin kanssa, refaktoroitu pään kääntäminen ja koko, koska rotate-metodin käyttö osoittautui ongelmalliseksi
+19.4. | 3   | Häntään törmääminen
+21.4. | 1   | Release, sekvenssikaavio
 
-YHTEENSÄ 20 H
+YHTEENSÄ 24 H
