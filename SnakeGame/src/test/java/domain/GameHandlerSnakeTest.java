@@ -50,15 +50,15 @@ public class GameHandlerSnakeTest {
     
     @Test
     public void turnSnakeTurnsSnake() {
-        Rectangle snake = game.getSnake().getShape();
-        game.turnSnake("RIGHT");
-        assertEquals("Does not turn right", 90.0, snake.getRotate(), 0.001);
-        game.turnSnake("DOWN");
-        assertEquals("Does not turn down", 180.0, snake.getRotate(), 0.001);
-        game.turnSnake("LEFT");
-        assertEquals("Does not turn left", -90.0, snake.getRotate(), 0.001);
-        game.turnSnake("UP");
-        assertEquals("Does not turn up", 0.0, snake.getRotate(), 0.001);
+        SnakeHead snake = game.getSnake();
+        game.turnSnake(Direction.RIGHT);
+        assertEquals("Does not turn right", Direction.RIGHT, snake.getDirection());
+        game.turnSnake(Direction.DOWN);
+        assertEquals("Does not turn down", Direction.DOWN, snake.getDirection());
+        game.turnSnake(Direction.LEFT);
+        assertEquals("Does not turn left", Direction.LEFT, snake.getDirection());
+        game.turnSnake(Direction.UP);
+        assertEquals("Does not turn up", Direction.UP, snake.getDirection());
     }
 
 }

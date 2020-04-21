@@ -13,8 +13,12 @@ public class Obstacle implements Crashable {
     
     private Rectangle obstacle;
     
-    public Obstacle(int x, int y) {
+    public Obstacle(double x, double y) {
         this.obstacle = new Rectangle(x, y, 10, 10);
+    }
+    
+    public Obstacle(double x, double y, int width, int height) {
+        this.obstacle = new Rectangle(x, y, width, height);
     }
     
     public void setPosition(int x, int y) {
@@ -22,6 +26,7 @@ public class Obstacle implements Crashable {
         obstacle.setTranslateY(y);
     }
     
+    @Override
     public Shape getShape() {
         return obstacle;
     }

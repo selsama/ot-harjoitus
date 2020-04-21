@@ -7,6 +7,7 @@ package snakegame.domain;
 
 import java.util.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.shape.*;
 /**
  *
  * @author salmison
@@ -16,44 +17,41 @@ public class GameHandler {
     private boolean over;
     private List<Obstacle> obstacles;
     private SnakeHead snake;
-    private HashMap<KeyCode, String> snakeControls;
+    private HashMap<KeyCode, Direction> snakeControls;
+    private ArrayList<ArrayList<SnakeTail>> tailParts;
     private int points;
     
+    //game initializing
     public GameHandler(int width, int height) {
         paused = true;
         over = false;
         obstacles = new ArrayList<>();
         this.makeWalls(width, height);
-        snake = new SnakeHead(width / 2, height / 2);
-        snakeControls = new HashMap<>();
-        this.setSnakeControls(snakeControls, KeyCode.UP, KeyCode.RIGHT, KeyCode.DOWN, KeyCode.LEFT);
+        this.makeSnake(width / 2, height / 2, height);
         points = 0;
     }
     
-    private void makeWalls(int width, int height) {
-        for (int i = 0; i < width; i += 10) {
-            obstacles.add(new Obstacle(i, 0));
-            obstacles.add(new Obstacle(i, height - 10));
-        }
-        for (int i = 0; i < height; i += 10) {
-            obstacles.add(new Obstacle(0, i));
-            obstacles.add(new Obstacle(width - 10, i));
+    private void makeSnake(int x, int y, int height) {
+        snake = new SnakeHead(x, y);
+        snakeControls = new HashMap<>();
+        this.setSnakeControls(snakeControls, KeyCode.UP, KeyCode.RIGHT, KeyCode.DOWN, KeyCode.LEFT);
+        tailParts = new ArrayList<>();
+        for (int i = 0; i <= height / 10; i++) {
+            tailParts.add(new ArrayList<>());
         }
     }
     
+    private void makeWalls(int width, int height) {
+        obstacles.add(new Obstacle(0, 0, width, 10));
+        obstacles.add(new Obstacle(0, height - 10, width, 10));
+        obstacles.add(new Obstacle(0, 0, 10, height));
+        obstacles.add(new Obstacle(width - 10, 0, 10, height));
+    }
+    
+    //obstacles
     public List getObstacles() {
         return obstacles;
-    }
-    
-    public boolean gameOver() {
-        for (Obstacle obs: obstacles) {
-            if (snake.crash(obs)) {
-                over = true;
-                return true;
-            }
-        }
-        return false;
-    }
+    }  
     
     //managing whether game is on
     public void setOnPause() {
@@ -73,32 +71,36 @@ public class GameHandler {
         return snake;
     }
     
-    public void setSnakeControls(HashMap<KeyCode, String> controls, KeyCode up, KeyCode right, KeyCode down, KeyCode left) {
-        controls.put(up, "UP");
-        controls.put(right, "RIGHT");
-        controls.put(down, "DOWN");
-        controls.put(left, "LEFT");
+    public void setSnakeControls(HashMap<KeyCode, Direction> controls, KeyCode up, KeyCode right, KeyCode down, KeyCode left) {
+        controls.put(up, Direction.UP);
+        controls.put(right, Direction.RIGHT);
+        controls.put(down, Direction.DOWN);
+        controls.put(left, Direction.LEFT);
     }
     
-    public void moveSnake() {
+    public Shape moveSnake() {
         snake.move();
+        SnakeTail tail = snake.leaveTail();
+        tailParts.get(tail.getY() / 10).add(tail);
+        return tail.getShape();
     }
     
-    public void turnSnake(String dir) {
-        if (dir.equals("UP")) {
+    public void turnSnake(Direction dir) {
+        if (dir == Direction.UP) {
             snake.turnUp();
         }
-        if (dir.equals("RIGHT")) {
+        if (dir == Direction.RIGHT) {
             snake.turnRight();
         }
-        if (dir.equals("DOWN")) {
+        if (dir == Direction.DOWN) {
             snake.turnDown();
         }
-        if (dir.equals("LEFT")) {
+        if (dir == Direction.LEFT) {
             snake.turnLeft();
         }
     }
     
+    // general game mechanics
     public boolean handleKeyPressed(KeyCode code) {
         if (!over) {
             if (snakeControls.containsKey(code)) {
@@ -110,6 +112,23 @@ public class GameHandler {
             return false;
         }
         return true;
+    }
+  
+    public boolean gameOver() {
+        for (Obstacle obs: obstacles) {
+            if (snake.crash(obs)) {
+                over = true;
+                return true;
+            }
+        }
+        int snakePositionY = (int) snake.getShape().getY();
+        for (SnakeTail tail: tailParts.get(snakePositionY / 10)) {
+            if (snake.crash(tail)) {
+                over = true;
+                return true;
+            }
+        }
+        return false;
     }
     
     //points
