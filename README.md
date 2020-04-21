@@ -1,6 +1,6 @@
 # Ohjelmistotekniikka, harjoitustyö: SnakeGame
 
-Sovellus tulee olemaan matopeli. Tällä hetkellä se on seinillä ympäröity ruutu, jossa liikkuu suorakaide (kunnes se törmää seinään). Suorakaidetta käännetään nuolinäppäimillä ja se liikkuu itsestään. Pelin voi pausettaa/jatkaa painamalla P.
+Sovellus on matopeli. Matoa käännetään nuolinäppäimillä ja se liikkuu itsestään. Peli loppuu, kun mato törmää seinään tai omaan häntäänsä. Pelin voi pausettaa/jatkaa painamalla P.
 
 ## Dokumentaatio
 
@@ -13,6 +13,10 @@ Sovellus tulee olemaan matopeli. Tällä hetkellä se on seinillä ympäröity r
 ## Projekti
 
 [SnakeGame](https://github.com/selsama/ot-harjoitus/tree/master/SnakeGame)
+
+## Release
+
+[Viikko 5](https://github.com/selsama/ot-harjoitus/releases)
 
 ## Komentorivikomennot
 
