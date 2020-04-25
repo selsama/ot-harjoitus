@@ -7,6 +7,7 @@ package snakegame.domain;
 
 import java.util.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 /**
  *
@@ -30,11 +31,12 @@ public class GameHandler {
         this.makeWalls(width, height);
         this.makeSnake(width / 2, height / 2, height);
         points = 0;
-        speed = 30000000;
+        speed = 40000000;
     }
     
     private void makeSnake(int x, int y, int height) {
         snake = new SnakeHead(x, y);
+        snake.setColor(Color.MEDIUMVIOLETRED);
         snakeControls = new HashMap<>();
         this.setSnakeControls(snakeControls, KeyCode.UP, KeyCode.RIGHT, KeyCode.DOWN, KeyCode.LEFT);
         tailParts = new ArrayList<>();
@@ -81,6 +83,10 @@ public class GameHandler {
     //Snake handling
     public SnakeHead getSnake() {
         return snake;
+    }
+    
+    public void setSnakeColor(Color color) {
+        snake.setColor(color);
     }
     
     public void setSnakeControls(HashMap<KeyCode, Direction> controls, KeyCode up, KeyCode right, KeyCode down, KeyCode left) {

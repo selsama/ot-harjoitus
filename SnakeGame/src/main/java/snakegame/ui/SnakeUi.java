@@ -11,19 +11,19 @@ import java.util.*;
 import javafx.application.Application;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.input.*;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class SnakeUi extends Application {
     
     private Scene gameScene;
-    private Scene startScene;
+    private Scene menuScene;
+    private Scene settingScene;
     private GameHandler game;
     public int SCENEWIDTH;
     public int SCENEHEIGHT;
@@ -38,8 +38,8 @@ public class SnakeUi extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // create startScene
-        BorderPane startPane = new BorderPane();
+        // create menuScene
+        BorderPane menuPane = new BorderPane();
         Button newGameButton = new Button("new game");
         Button settingsButton = new Button("settings");
         Button highScoresButton = new Button("see highscores");
@@ -47,13 +47,16 @@ public class SnakeUi extends Application {
         newGameButton.setOnAction(e->{
             primaryStage.setScene(gameScene);
         }); 
+        settingsButton.setOnAction(e->{
+           primaryStage.setScene(settingScene); 
+        });
         
-        VBox startBox = new VBox();
-        startBox.getChildren().addAll(newGameButton, settingsButton, highScoresButton);
+        VBox menuBox = new VBox();
+        menuBox.getChildren().addAll(newGameButton, settingsButton, highScoresButton);
 
-        startPane.setCenter(startBox);
+        menuPane.setCenter(menuBox);
         
-        startScene = new Scene(startPane, SCENEWIDTH, SCENEHEIGHT);
+        menuScene = new Scene(menuPane, SCENEWIDTH, SCENEHEIGHT);
         
         // create gameScene
         Pane gamePane = new Pane();
@@ -81,25 +84,74 @@ public class SnakeUi extends Application {
             long previousMoment = 0;
             @Override
             public void handle(long moment){
-                if(moment - previousMoment < game.getSpeed()) {
+                if (moment - previousMoment < game.getSpeed()) {
                     return;
                 }
                 previousMoment = moment;    
-                if(!game.paused){
+                if (!game.paused){
                     gamePane.getChildren().add(game.moveSnake());
                     game.addPoints(1);
                     pointCounter.setText("Points: "+game.getPoints());
                 }
-                if(game.gameOver()) {
+                if (game.gameOver()) {
                     stop();
                 }
                 
             }
         }.start();
         
+        // create settingsScene
+        
+        Pane settingPane = new Pane();
+        VBox settingBox = new VBox();
+        
+        Label settingsLabel = new Label("SETTINGS");
+        Label notif = new Label(); 
+        Button backButton = new Button("back to menu");
+
+        backButton.setOnAction(e->{
+            primaryStage.setScene(menuScene);
+        });
+                
+        VBox genBox = new VBox();
+        genBox.getChildren().addAll(settingsLabel, notif, backButton);
+        
+        Label  difficulty = new Label("Game difficulty:");
+        Button easyButton = new Button("easy");
+        Button hardButton = new Button("hard");
+        
+        easyButton.setOnAction(e->{
+            game.setSpeed(40000000);
+            notif.setText("difficulty set to easy");
+        });
+        hardButton.setOnAction(e->{
+            game.setSpeed(10000000);
+            notif.setText("difficulty set to hard");
+        });
+        
+        VBox diffBox = new VBox();
+        HBox diffButtonsBox = new HBox();
+        diffButtonsBox.getChildren().addAll(easyButton, hardButton);
+        diffBox.getChildren().addAll(difficulty, diffButtonsBox);
+        
+        Label colorLabel = new Label("Set snake color:");
+        ColorPicker colorPicker = new ColorPicker();
+        colorPicker.setValue(Color.MEDIUMVIOLETRED);
+        
+        colorPicker.setOnAction(e->{
+            game.setSnakeColor(colorPicker.getValue());
+        });
+        
+        VBox colorBox = new VBox();
+        colorBox.getChildren().addAll(colorPicker);
+        
+        settingBox.getChildren().addAll(genBox, diffBox, colorBox);
+        settingPane.getChildren().add(settingBox);
+        settingScene = new Scene(settingPane, SCENEWIDTH, SCENEHEIGHT);
+        
         // setup primary scene
         primaryStage.setTitle("SNAKES");
-        primaryStage.setScene(startScene);
+        primaryStage.setScene(menuScene);
         primaryStage.show();
     }
     

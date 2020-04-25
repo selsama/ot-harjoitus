@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package snakegame.domain;
+import javafx.scene.paint.*;
 import javafx.scene.shape.*;
 /**
  *
@@ -13,8 +14,9 @@ public class SnakeTail implements Crashable {
     
     private Rectangle tailPart;
     
-    public SnakeTail(double x, double y) {
+    public SnakeTail(double x, double y, Paint color) {
         tailPart = new Rectangle(x, y, 10, 10);
+        tailPart.setFill(color);
     }
     
     @Override

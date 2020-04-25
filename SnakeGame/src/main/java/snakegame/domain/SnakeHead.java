@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package snakegame.domain;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 /**
  *
@@ -21,6 +22,10 @@ public class SnakeHead implements Crashable {
     
     public Rectangle getShape() {
         return head;
+    }
+    
+    public void setColor(Color color) {
+        this.head.setFill(color);
     }
     
     public void setDirection(Direction dir) {
@@ -70,13 +75,13 @@ public class SnakeHead implements Crashable {
     public SnakeTail leaveTail() {
         SnakeTail tail = null;
         if (dir == Direction.UP) {
-            tail = new SnakeTail(head.getX(), head.getY() + 10);
+            tail = new SnakeTail(head.getX(), head.getY() + 10, head.getFill());
         } else if (dir == Direction.RIGHT) {
-            tail = new SnakeTail(head.getX() - 10, head.getY());
+            tail = new SnakeTail(head.getX() - 10, head.getY(), head.getFill());
         } else if (dir == Direction.DOWN) {
-            tail = new SnakeTail(head.getX(), head.getY() - 10);
+            tail = new SnakeTail(head.getX(), head.getY() - 10, head.getFill());
         } else if (dir == Direction.LEFT) {
-            tail = new SnakeTail(head.getX() + 10, head.getY());
+            tail = new SnakeTail(head.getX() + 10, head.getY(), head.getFill());
         }
         return tail;
     }
