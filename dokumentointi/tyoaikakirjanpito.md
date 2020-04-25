@@ -12,5 +12,6 @@ Pvm | Tunnit | Aihe
 18.4. | 4   | Hännän aloitus, ongelmia AnimationTimerin kanssa, refaktoroitu pään kääntäminen ja koko, koska rotate-metodin käyttö osoittautui ongelmalliseksi
 19.4. | 3   | Häntään törmääminen
 21.4. | 1   | Release, sekvenssikaavio
+25.4. | 1.5 | Tökkimisen korjaaminen, asetusnäkymä, värin ja nopeuden valinta
 
-YHTEENSÄ 24 H
+YHTEENSÄ 25.5 H
