@@ -15,10 +15,11 @@ Sovelluksessa on valikko(aloitus)näkymä, pelinäkymä, asetusnäkymä ja parha
 - pelin voi pausettaa näppäimellä P // DONE
 - peliruutua ympäröivät seinät, johon törmääminen madolla lopettaa pelin // DONE
 - matoa ei voi enää kääntää, kun peli on loppu // DONE
-- mato jättää jälkeensä häntää, joka pysyy paikallaan, ja johon törmääminen lopettaa pelin // done, mutta tökkii, pitää selvitellä vielä. liekö vain liikaa laskemista vai joku muu ongelma, olisiko joku muu toteutus kuin animationTimer parempi piirtämiseen.
+- mato jättää jälkeensä häntää, joka pysyy paikallaan, ja johon törmääminen lopettaa pelin // DONE
 - pelin loputtua näkymä vaihtuu, näyttää pisteet ja nappulan josta voi aloittaa uuden pelin
 - pelinäkymä näyttää pisteet pelin ollessa käynnissä // DONE
-- madon värin voi valita asetusnäkymässä
+- madon värin voi valita asetusnäkymässä // DONE
+- vaikeustason voi valita // DONE
 - sovellus ylläpitää ennätysajoista listaa
 
 ## Toiminnallisuus - lisäideat jatkoon/jos aikaa riittää
