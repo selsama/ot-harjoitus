@@ -78,9 +78,13 @@ public class SnakeUi extends Application {
         });
         
         new AnimationTimer(){
+            long previousMoment = 0;
             @Override
             public void handle(long moment){
-                if(moment % 5 == 0) {
+                if(moment - previousMoment < game.getSpeed()) {
+                    return;
+                }
+                previousMoment = moment;    
                 if(!game.paused){
                     gamePane.getChildren().add(game.moveSnake());
                     game.addPoints(1);
@@ -89,7 +93,7 @@ public class SnakeUi extends Application {
                 if(game.gameOver()) {
                     stop();
                 }
-                }
+                
             }
         }.start();
         

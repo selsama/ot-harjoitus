@@ -20,6 +20,7 @@ public class GameHandler {
     private HashMap<KeyCode, Direction> snakeControls;
     private ArrayList<ArrayList<SnakeTail>> tailParts;
     private int points;
+    private int speed;
     
     //game initializing
     public GameHandler(int width, int height) {
@@ -29,6 +30,7 @@ public class GameHandler {
         this.makeWalls(width, height);
         this.makeSnake(width / 2, height / 2, height);
         points = 0;
+        speed = 30000000;
     }
     
     private void makeSnake(int x, int y, int height) {
@@ -65,6 +67,16 @@ public class GameHandler {
     public void triggerPause() {
         paused = !paused;
     }
+    
+    // game difficulty setting
+    public void setSpeed(int d) {
+       this.speed=d;
+    }
+    
+    public int getSpeed() {
+        return this.speed;
+    }
+    
     
     //Snake handling
     public SnakeHead getSnake() {
