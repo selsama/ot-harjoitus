@@ -16,7 +16,7 @@ Sovelluksessa on valikko(aloitus)näkymä, pelinäkymä, asetusnäkymä ja parha
 - peliruutua ympäröivät seinät, johon törmääminen madolla lopettaa pelin // DONE
 - matoa ei voi enää kääntää, kun peli on loppu // DONE
 - mato jättää jälkeensä häntää, joka pysyy paikallaan, ja johon törmääminen lopettaa pelin // DONE
-- pelin loputtua näkymä vaihtuu, näyttää pisteet ja nappulan josta voi aloittaa uuden pelin
+- pelin loputtua näkymä vaihtuu, näyttää pisteet ja nappulan josta voi aloittaa uuden pelin // DONE
 - pelinäkymä näyttää pisteet pelin ollessa käynnissä // DONE
 - madon värin voi valita asetusnäkymässä // DONE
 - vaikeustason voi valita // DONE
