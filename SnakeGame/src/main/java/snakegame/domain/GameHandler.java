@@ -79,7 +79,7 @@ public class GameHandler {
     
     // game difficulty setting
     public void setSpeed(int d) {
-       this.speed = d;
+        this.speed = d;
     }
     
     public int getSpeed() {
