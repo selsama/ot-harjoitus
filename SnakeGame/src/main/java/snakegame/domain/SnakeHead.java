@@ -14,18 +14,25 @@ public class SnakeHead implements Crashable {
     
     private Rectangle head;
     private Direction dir;
+    private Color color;
     
     public SnakeHead(double x, double y) {
         this.head = new Rectangle(x, y, 10, 10);
         this.dir = Direction.UP;
+        this.color = Color.MEDIUMVIOLETRED;
     }
     
     public Rectangle getShape() {
         return head;
     }
     
+    public Color getColor() {
+        return this.color;
+    }
+    
     public void setColor(Color color) {
         this.head.setFill(color);
+        this.color = color;
     }
     
     public void setDirection(Direction dir) {
@@ -75,13 +82,13 @@ public class SnakeHead implements Crashable {
     public SnakeTail leaveTail() {
         SnakeTail tail = null;
         if (dir == Direction.UP) {
-            tail = new SnakeTail(head.getX(), head.getY() + 10, head.getFill());
+            tail = new SnakeTail(head.getX(), head.getY() + 10, color);
         } else if (dir == Direction.RIGHT) {
-            tail = new SnakeTail(head.getX() - 10, head.getY(), head.getFill());
+            tail = new SnakeTail(head.getX() - 10, head.getY(), color);
         } else if (dir == Direction.DOWN) {
-            tail = new SnakeTail(head.getX(), head.getY() - 10, head.getFill());
+            tail = new SnakeTail(head.getX(), head.getY() - 10, color);
         } else if (dir == Direction.LEFT) {
-            tail = new SnakeTail(head.getX() + 10, head.getY(), head.getFill());
+            tail = new SnakeTail(head.getX() + 10, head.getY(), color);
         }
         return tail;
     }

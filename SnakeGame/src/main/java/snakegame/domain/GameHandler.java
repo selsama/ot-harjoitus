@@ -29,14 +29,21 @@ public class GameHandler {
         over = false;
         obstacles = new ArrayList<>();
         this.makeWalls(width, height);
-        this.makeSnake(width / 2, height / 2, height);
+        this.makeSnake(width / 2, height / 2, height, Color.MEDIUMVIOLETRED);
         points = 0;
         speed = 40000000;
     }
     
-    private void makeSnake(int x, int y, int height) {
+    public void newGame(int width, int height) {
+        paused = true;
+        over = false;
+        this.makeSnake(width / 2, height / 2, height, snake.getColor());
+        points = 0;
+    }
+    
+    private void makeSnake(int x, int y, int height, Color color) {
         snake = new SnakeHead(x, y);
-        snake.setColor(Color.MEDIUMVIOLETRED);
+        snake.setColor(color);
         snakeControls = new HashMap<>();
         this.setSnakeControls(snakeControls, KeyCode.UP, KeyCode.RIGHT, KeyCode.DOWN, KeyCode.LEFT);
         tailParts = new ArrayList<>();
@@ -72,13 +79,12 @@ public class GameHandler {
     
     // game difficulty setting
     public void setSpeed(int d) {
-       this.speed=d;
+       this.speed = d;
     }
     
     public int getSpeed() {
         return this.speed;
     }
-    
     
     //Snake handling
     public SnakeHead getSnake() {
