@@ -26,34 +26,33 @@ public class GameHandlerPausingTest {
     
     @Test
     public void gameStartsOnPause() {
-        assertTrue(game.paused);
+        assertTrue(game.onPause());
     }
     
     @Test
     public void setOnPauseWorks() {
-        game.paused=false;
+        game.setOffPause();
+        assertFalse(game.onPause());
         game.setOnPause();
-        assertTrue(game.paused);
+        assertTrue(game.onPause());
     }
     
     @Test
     public void setOffPauseWorks() {
-        game.paused = true;
         game.setOffPause();
-        assertFalse(game.paused);
+        assertFalse(game.onPause());
     }
     
     @Test
     public void triggerPauseWorksWhenPaused() {
-        game.paused = true;
         game.triggerPause();
-        assertFalse(game.paused);
+        assertFalse(game.onPause());
     }
     
     @Test
     public void triggerPauseWorksWhenUnpaused() {
-        game.paused = false;
+        game.setOffPause();
         game.triggerPause();
-        assertTrue(game.paused);
+        assertTrue(game.onPause());
     }
 }

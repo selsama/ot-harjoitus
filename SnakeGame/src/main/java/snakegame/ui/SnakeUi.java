@@ -44,50 +44,7 @@ public class SnakeUi extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.stage = primaryStage;
-       
-        // create gameScene
-//        Pane gamePane = new Pane();
-//        
-//        Label pointCounter = new Label("Points: "+game.getPoints());
-//        pointCounter.setTranslateY(10);
-//        pointCounter.setTranslateX(10);
-//        
-//        List<Obstacle> obstacles = game.getObstacles();
-//        for(Obstacle obs: obstacles) {
-//            gamePane.getChildren().add(obs.getShape());
-//        }
-//
-//        gamePane.getChildren().addAll(game.getSnake().getShape(),pointCounter);
-//        
-//        gameScene = new Scene(gamePane, SCENEWIDTH, SCENEHEIGHT);
-//        
-//        gameScene.setOnKeyPressed(event ->{
-//            if(game.handleKeyPressed(event.getCode())) {
-//                game.setOffPause();
-//            }
-//        });
-//        
-//        new AnimationTimer(){
-//            long previousMoment = 0;
-//            @Override
-//            public void handle(long moment){
-//                if (moment - previousMoment < game.getSpeed()) {
-//                    return;
-//                }
-//                previousMoment = moment;    
-//                if (!game.paused){
-//                    gamePane.getChildren().add(game.moveSnake());
-//                    game.addPoints(1);
-//                    pointCounter.setText("Points: "+game.getPoints());
-//                }
-//                if (game.gameOver()) {
-//                    stop();
-//                    SnakeUi.this.createGameOverScene();
-//                }
-//                
-//            }
-//        }.start();
-         
+           
         // setup primary scene
         primaryStage.setTitle("SNAKES");
         primaryStage.setScene(menuScene);
@@ -197,7 +154,7 @@ public class SnakeUi extends Application {
     }
     
     public void createGameScene() {
-        game.newGame(SCENEWIDTH, SCENEHEIGHT);
+        game.newGame();
         
         Pane gamePane = new Pane();
         
@@ -228,7 +185,7 @@ public class SnakeUi extends Application {
                     return;
                 }
                 previousMoment = moment;    
-                if (!game.paused){
+                if (!game.onPause()){
                     gamePane.getChildren().add(game.moveSnake());
                     game.addPoints(1);
                     pointCounter.setText("Points: "+game.getPoints());
