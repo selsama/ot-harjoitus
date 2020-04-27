@@ -46,8 +46,6 @@ public class GameHandler {
     
     /**
      * Sets the GameHandler ready for a new game
-     * @param width the width of the game scene
-     * @param height the height of the game scene
      */
     public void newGame() {
         paused = true;
@@ -121,10 +119,10 @@ public class GameHandler {
     }
     
     /**
-     * 
+     * tells whether the game is paused
      * @return true, if the game is on pause, otherwise false 
      */
-    public Boolean onPause() {
+    public boolean onPause() {
         return paused;
     }
     

@@ -6,11 +6,14 @@
 package snakegame.domain;
 import javafx.scene.shape.*;
 /**
- *
- * @author salmison
+ * Interface for instances that can crash into each other
  */
 public interface Crashable { 
     
+    /**
+     * returns the Shape of the Crashable
+     * @return Shape shape of the instance
+     */
     Shape getShape();
     
 }

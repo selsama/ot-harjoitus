@@ -6,8 +6,7 @@
 package snakegame.domain;
 
 /**
- *
- * @author salmison
+ * Provides a way of controlling the direction to which the snake is headed
  */
 public enum Direction {
     UP, RIGHT, DOWN, LEFT
