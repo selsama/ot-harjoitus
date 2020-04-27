@@ -79,10 +79,10 @@ public class GameHandler {
      * Creates walls out of Obstacles around the game area
      */
     private void makeWalls() {
-        obstacles.add(new Obstacle(0, 0, width, 10));
-        obstacles.add(new Obstacle(0, height - 10, width, 10));
-        obstacles.add(new Obstacle(0, 0, 10, height));
-        obstacles.add(new Obstacle(width - 10, 0, 10, height));
+        obstacles.add(new Obstacle(0, 0, width, 11));
+        obstacles.add(new Obstacle(0, height - 10, width, 11));
+        obstacles.add(new Obstacle(0, 0, 11, height));
+        obstacles.add(new Obstacle(width - 10, 0, 11, height));
     }
     
     //obstacles
@@ -239,24 +239,6 @@ public class GameHandler {
             }
         }
         return false;
-    }
-    
-    //points
-    
-    /**
-     * returns the amount of points collected
-     * @return points
-     */
-    public int getPoints() {
-        return points;
-    }
-    
-    /**
-     * increases the amount of points collected
-     * @param points the amount of increase in points
-     */
-    public void addPoints(int points) {
-        this.points += points;
     }
     
 }

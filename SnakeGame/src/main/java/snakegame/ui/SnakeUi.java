@@ -6,6 +6,7 @@
 package snakegame.ui;
 
 import snakegame.domain.*;
+import snakegame.dao.*;
 
 import java.util.*;
 import javafx.application.Application;
@@ -26,7 +27,9 @@ public class SnakeUi extends Application {
     private Scene menuScene;
     private Scene settingScene;
     private Scene gameOverScene;
+    private Scene highScoreScene;
     private GameHandler game;
+    private PointHandler points;
     public int SCENEWIDTH;
     public int SCENEHEIGHT;
     
@@ -39,6 +42,7 @@ public class SnakeUi extends Application {
         this.createSettingScene();
         
         game = new GameHandler(SCENEWIDTH, SCENEHEIGHT);
+        points = new PointHandler(new TestHighScoreDao());
     }
     
     @Override
@@ -64,6 +68,10 @@ public class SnakeUi extends Application {
         settingsButton.setOnAction(e->{
            this.stage.setScene(settingScene); 
         });
+        highScoresButton.setOnAction(e->{ 
+            this.createHighScoreScene();
+            this.stage.setScene(highScoreScene);
+        });
         
         VBox menuBox = new VBox();
         menuBox.getChildren().addAll(newGameButton, settingsButton, highScoresButton);
@@ -84,13 +92,23 @@ public class SnakeUi extends Application {
             stage.setScene(menuScene);
         });
         Label gameOverLabel = new Label("game over!");
-        Label scoreLabel = new Label("your score: "+game.getPoints());
+        Label scoreLabel = new Label("your score: "+points.getPoints());
+        
         Label newHighScoreLabel = new Label("new high score!");
         Label giveYourNickLabel = new Label("give your name: ");
         TextField nameField = new TextField();
+        Button submitButton = new Button("submit highscore!");
+        Label messageLabel = new Label();
+        submitButton.setOnAction(e->{
+            if (points.addNewHighscore(nameField.getText())) {
+                messageLabel.setText("done!");
+                submitButton.disarm();
+            }
+        });
+        HBox submitbox = new HBox(nameField, submitButton, messageLabel);
         VBox newHighScoreBox = new VBox();
-        if (game.getPoints() > 500) {
-            newHighScoreBox.getChildren().addAll(newHighScoreLabel, giveYourNickLabel, nameField);
+        if (points.checkIfHighScore()) {
+            newHighScoreBox.getChildren().addAll(newHighScoreLabel, giveYourNickLabel, submitbox);
         }
         
         VBox gameOverBox = new VBox();
@@ -155,10 +173,11 @@ public class SnakeUi extends Application {
     
     public void createGameScene() {
         game.newGame();
+        points.reset();
         
         Pane gamePane = new Pane();
         
-        Label pointCounter = new Label("Points: "+game.getPoints());
+        Label pointCounter = new Label("Points: "+points.getPoints());
         pointCounter.setTranslateY(10);
         pointCounter.setTranslateX(10);
         
@@ -187,8 +206,8 @@ public class SnakeUi extends Application {
                 previousMoment = moment;    
                 if (!game.onPause()){
                     gamePane.getChildren().add(game.moveSnake());
-                    game.addPoints(1);
-                    pointCounter.setText("Points: "+game.getPoints());
+                    points.addPoints(1);
+                    pointCounter.setText("Points: "+points.getPoints());
                 }
                 if (game.gameOver()) {
                     stop();
@@ -197,6 +216,25 @@ public class SnakeUi extends Application {
                 
             }
         }.start();
+    }
+    
+    private void createHighScoreScene() {
+        BorderPane highScorePane = new BorderPane();
+        Label title = new Label("HIGHSCORES:");
+        VBox scoresbox = new VBox();
+        int i = 1;
+        for(String s: points.getHighscores()) {
+            scoresbox.getChildren().add(new Label(i+": "+s));
+            i++;
+        }
+        Button backToMenuButton = new Button("back to main menu");
+        backToMenuButton.setOnAction(e-> {
+            stage.setScene(menuScene);
+        });
+        VBox allBox = new VBox();
+        allBox.getChildren().addAll(title, scoresbox, backToMenuButton);
+        highScorePane.setCenter(allBox);
+        highScoreScene = new Scene(highScorePane, SCENEWIDTH, SCENEHEIGHT);
     }
     
     public void setMenuScene() {
