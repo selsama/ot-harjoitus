@@ -6,7 +6,7 @@ Sovellus on matopeli, jossa madon häntä muodostaa jatkuvan kiinteän esteen ru
 
 ## Käyttöliittymäluonnos
 
-Sovelluksessa on valikko(aloitus)näkymä, pelinäkymä, asetusnäkymä ja parhaat tulokset -näkymä, joiden välillä voi liikkua klikkaamalla nappuloita.
+Sovelluksessa on valikko(aloitus)näkymä, pelinäkymä, peli ohi -näkymä,  asetusnäkymä ja parhaat tulokset -näkymä, joiden välillä voi liikkua klikkaamalla nappuloita.
 
 ## Toiminnallisuus
 
@@ -20,7 +20,8 @@ Sovelluksessa on valikko(aloitus)näkymä, pelinäkymä, asetusnäkymä ja parha
 - pelinäkymä näyttää pisteet pelin ollessa käynnissä // DONE
 - madon värin voi valita asetusnäkymässä // DONE
 - vaikeustason voi valita // DONE
-- sovellus ylläpitää ennätysajoista listaa
+- parhaat tulokset -näkymä // DONE
+- sovellus ylläpitää ennätysajoista listaa, joka tallennetaan tiedostoon / tietokantaan
 
 ## Toiminnallisuus - lisäideat jatkoon/jos aikaa riittää
 
