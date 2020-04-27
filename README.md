@@ -1,6 +1,6 @@
 # Ohjelmistotekniikka, harjoitustyö: SnakeGame
 
-Sovellus on matopeli. Matoa käännetään nuolinäppäimillä ja se liikkuu itsestään. Peli loppuu, kun mato törmää seinään tai omaan häntäänsä. Pelin voi pausettaa/jatkaa painamalla P.
+Sovellus on matopeli. Matoa käännetään nuolinäppäimillä ja se liikkuu itsestään. Peli loppuu, kun mato törmää seinään tai omaan häntäänsä. Pelin voi pausettaa/jatkaa painamalla P. Madon värin ja vaikeustason voi valita asetuksista.
 
 ## Dokumentaatio
 
@@ -16,7 +16,7 @@ Sovellus on matopeli. Matoa käännetään nuolinäppäimillä ja se liikkuu its
 
 ## Release
 
-[Viikko 5](https://github.com/selsama/ot-harjoitus/releases)
+[Viikko 6](https://github.com/selsama/ot-harjoitus/releases/tag/viikko6)
 
 ## Komentorivikomennot
 
@@ -47,3 +47,14 @@ Checkstyle-tarkistus:
     mvn jxr:jxr checkstyle:checkstyle
     
 Tulokset löytyvät tiedostosta */target/site/checkstyle.html.*
+
+### Javadoc
+
+Javadocin generointi:
+
+    mvn javadoc:javadoc
+    
+Javadoc saattaa vaatia JAVA_HOME:n määrittämisen:
+
+    JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ mvn clean javadoc:javadoc
+
