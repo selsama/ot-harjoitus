@@ -14,9 +14,11 @@ Sovellus on matopeli. Matoa käännetään nuolinäppäimillä ja se liikkuu its
 
 [SnakeGame](https://github.com/selsama/ot-harjoitus/tree/master/SnakeGame)
 
-## Release
+## Releaset
 
 [Viikko 6](https://github.com/selsama/ot-harjoitus/releases/tag/viikko6)
+
+[Kaikki releaset](https://github.com/selsama/ot-harjoitus/releases)
 
 ## Komentorivikomennot
 
