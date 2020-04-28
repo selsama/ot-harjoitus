@@ -28,7 +28,7 @@ Luokka *GameHandler* hallinnoi pelin elementtejä, joita ovat seinät ja muut es
 
 *PointHandler* huolehtii pisteenlaskusta. *PointHandler* myös pääsee käsiksi parhaiden tulosten listaan pakkauksessa *snakegame.dao* sijaitsevan rajapinnan *HighScoreDao* toteuttavan luokan kautta. Luokan toteutus injektoidaan *PointHandler*ille konstruktorikutsun yhteydessä.
 
-![kaavio](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/kaavio.png)
+![luokkakaavio](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/luokkakaavio.png)
 
 ### Päätoiminnallisuudet
 
