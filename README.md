@@ -2,6 +2,8 @@
 
 Sovellus on matopeli. Matoa käännetään nuolinäppäimillä ja se liikkuu itsestään. Peli loppuu, kun mato törmää seinään tai omaan häntäänsä. Pelin voi pausettaa/jatkaa painamalla P. Madon värin ja vaikeustason voi valita asetuksista.
 
+[Käyttöohje](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/kayttoohje.md)
+
 ## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/vaatimusmaarittely.md)
