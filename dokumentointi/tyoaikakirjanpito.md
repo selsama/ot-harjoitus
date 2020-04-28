@@ -15,5 +15,6 @@ Pvm | Tunnit | Aihe
 25.4. | 1.5 | Tökkimisen korjaaminen, asetusnäkymä, värin ja nopeuden valinta
 26.4. | 1.5 | Refaktorointia UI:ssa (scenejen luominen siirretty omiin metodeihinsa), gameOver-näkymä, uuden pelin aloitus
 27.4. | 4.5 | Javadocin aloitus, huippupistenäkymä, huippupisteiden lisääminen gameOver-näkymässä, uusi luokka PointHandler, dao:jen aloitus, testejä
+28.4. | 1.5 | Dokumentointia
 
-YHTEENSÄ 31.5 H
+YHTEENSÄ 33 H
