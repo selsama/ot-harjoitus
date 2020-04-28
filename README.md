@@ -61,4 +61,6 @@ Javadocin generointi:
 Javadoc saattaa vaatia JAVA_HOME:n määrittämisen:
 
     JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ mvn clean javadoc:javadoc
+    
+Javadoc löytyy kansiosta */target/site/apidocs*
 
