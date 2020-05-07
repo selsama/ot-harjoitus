@@ -16,5 +16,6 @@ Pvm | Tunnit | Aihe
 26.4. | 1.5 | Refaktorointia UI:ssa (scenejen luominen siirretty omiin metodeihinsa), gameOver-näkymä, uuden pelin aloitus
 27.4. | 4.5 | Javadocin aloitus, huippupistenäkymä, huippupisteiden lisääminen gameOver-näkymässä, uusi luokka PointHandler, dao:jen aloitus, testejä
 28.4. | 1.5 | Dokumentointia
+7.5.  | 2.5 | SQL:n käyttöönotto
 
-YHTEENSÄ 33 H
+YHTEENSÄ 35.5 H
