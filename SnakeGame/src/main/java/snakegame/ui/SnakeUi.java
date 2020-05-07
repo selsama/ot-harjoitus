@@ -42,7 +42,8 @@ public class SnakeUi extends Application {
         this.createSettingScene();
         
         game = new GameHandler(SCENEWIDTH, SCENEHEIGHT);
-        points = new PointHandler(new TestHighScoreDao());
+        
+        points = new PointHandler(new SQLHighScoreDao("./scores"));
     }
     
     @Override
@@ -224,7 +225,7 @@ public class SnakeUi extends Application {
         VBox scoresbox = new VBox();
         int i = 1;
         for(String s: points.getHighscores()) {
-            scoresbox.getChildren().add(new Label(i+": "+s));
+            scoresbox.getChildren().add(new Label(i+":\t"+s));
             i++;
         }
         Button backToMenuButton = new Button("back to main menu");
@@ -245,9 +246,9 @@ public class SnakeUi extends Application {
         stage.setScene(settingScene);
     }
     
-    public void setGameOverScene() {
-        stage.setScene(gameOverScene);
-    }
+//    public void setGameOverScene() {
+//        stage.setScene(gameOverScene);
+//    }
     
     public static void main(String[] args)  {
         launch(args);

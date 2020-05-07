@@ -16,7 +16,11 @@ public class PointHandler {
     private HighScoreDao highscores;
     
     public PointHandler(HighScoreDao dao) {
-        highscores = dao;
+        try {
+            highscores = dao;
+        } catch (Exception e) {
+            System.out.println("Check your database connection");
+        }
         points = 0;
     }
     
