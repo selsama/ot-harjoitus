@@ -8,7 +8,7 @@ Sovellus on matopeli. Matoa käännetään nuolinäppäimillä ja se liikkuu its
 
 [Vaatimusmäärittely](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/vaatimusmaarittely.md)
 
-[Luokkakaavio](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/arkkitehtuuri.md)
+[Arkkitehtuuri](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/arkkitehtuuri.md)
 
 [Työaikakirjanpito](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/tyoaikakirjanpito.md)
 
