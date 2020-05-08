@@ -15,6 +15,7 @@ import javafx.scene.shape.*;
  */
 public class GameHandler {
     private boolean paused;
+    private boolean started;
     private boolean over;
     private int width;
     private int height;
@@ -34,6 +35,7 @@ public class GameHandler {
      */
     public GameHandler(int width, int height) {
         paused = true;
+        started = false;
         over = false;
         this.width = width;
         this.height = height;
@@ -49,6 +51,7 @@ public class GameHandler {
      */
     public void newGame() {
         paused = true;
+        started = false;
         over = false;
         this.makeSnake(width / 2, height / 2, snake.getColor());
         points = 0;
@@ -79,9 +82,9 @@ public class GameHandler {
      * Creates walls out of Obstacles around the game area
      */
     private void makeWalls() {
-        obstacles.add(new Obstacle(0, 0, width, 11));
+        obstacles.add(new Obstacle(0, 0, width, 10));
         obstacles.add(new Obstacle(0, height - 10, width, 11));
-        obstacles.add(new Obstacle(0, 0, 11, height));
+        obstacles.add(new Obstacle(0, 0, 10, height));
         obstacles.add(new Obstacle(width - 10, 0, 11, height));
     }
     
@@ -126,6 +129,14 @@ public class GameHandler {
         return paused;
     }
     
+    /**
+     * start the game
+     */
+    public void start() {
+        started = true;
+        paused = false;
+    }
+    
     // game difficulty setting
     
     /**
@@ -162,6 +173,14 @@ public class GameHandler {
         snake.setColor(color);
     }
     
+    /**
+     * sets the controls for the snake
+     * @param controls where the controls are saved
+     * @param up key that turns the SnakeHead up
+     * @param right key that turns it right
+     * @param down key that turns it down
+     * @param left key that turns it left
+     */
     private void setSnakeControls(HashMap<KeyCode, Direction> controls, KeyCode up, KeyCode right, KeyCode down, KeyCode left) {
         controls.put(up, Direction.UP);
         controls.put(right, Direction.RIGHT);
@@ -208,7 +227,12 @@ public class GameHandler {
      * @return True, if the game was not set on pause
      */
     public boolean handleKeyPressed(KeyCode code) {
-        if (!over) {
+        if(!started) {
+            if (snakeControls.containsKey(code)) {
+                snake.setDirection(snakeControls.get(code));
+            }
+        }
+        else if (!over) {
             if (snakeControls.containsKey(code)) {
                 this.turnSnake(snakeControls.get(code));
             }

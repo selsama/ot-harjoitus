@@ -27,9 +27,7 @@ public class SQLHighScoreDao implements HighScoreDao<String, Integer> {
         }
         try {
             s.execute("CREATE TABLE Scores (id INTEGER PRIMARY KEY AUTO_INCREMENT, name TEXT, score INTEGER)");
-//            s.execute("INSERT INTO Scores (score) VALUES (0)");
         } catch (SQLException e) {
-            System.out.println("Tables created already "+e.getMessage());
         }
     }
     

@@ -8,6 +8,7 @@ package snakegame.ui;
 import snakegame.domain.*;
 import snakegame.dao.*;
 
+import java.io.*;
 import java.util.*;
 import javafx.application.Application;
 import javafx.animation.AnimationTimer;
@@ -43,7 +44,14 @@ public class SnakeUi extends Application {
         
         game = new GameHandler(SCENEWIDTH, SCENEHEIGHT);
         
-        points = new PointHandler(new SQLHighScoreDao("./scores"));
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileInputStream("config.properties"));
+            String HighScoreSQL = properties.getProperty("scoreSQL");
+            points = new PointHandler(new SQLHighScoreDao(HighScoreSQL));
+        } catch(Exception e) {
+            System.out.println("Check config.properties");
+        }
     }
     
     @Override
@@ -103,7 +111,9 @@ public class SnakeUi extends Application {
         submitButton.setOnAction(e->{
             if (points.addNewHighscore(nameField.getText())) {
                 messageLabel.setText("done!");
-                submitButton.disarm();
+                submitButton.setOnAction(event ->{
+                    messageLabel.setText("already submitted!");
+                });
             }
         });
         HBox submitbox = new HBox(nameField, submitButton, messageLabel);
@@ -193,7 +203,7 @@ public class SnakeUi extends Application {
         
         gameScene.setOnKeyPressed(event ->{
             if(game.handleKeyPressed(event.getCode())) {
-                game.setOffPause();
+                game.start();
             }
         });
         
@@ -225,7 +235,7 @@ public class SnakeUi extends Application {
         VBox scoresbox = new VBox();
         int i = 1;
         for(String s: points.getHighscores()) {
-            scoresbox.getChildren().add(new Label(i+":\t"+s));
+            scoresbox.getChildren().add(new Label(i+": "+s));
             i++;
         }
         Button backToMenuButton = new Button("back to main menu");
