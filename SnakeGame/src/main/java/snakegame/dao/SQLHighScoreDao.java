@@ -20,7 +20,7 @@ public class SQLHighScoreDao implements HighScoreDao<String, Integer> {
     
     public SQLHighScoreDao(String data) {
         try {
-            db = DriverManager.getConnection("jdbc:h2:"+data);
+            db = DriverManager.getConnection("jdbc:h2:" + data);
             s = db.createStatement();
         } catch (SQLException e) {
             System.out.println("Cannot connect to database");
@@ -59,7 +59,7 @@ public class SQLHighScoreDao implements HighScoreDao<String, Integer> {
     @Override
     public void deleteLast() throws SQLException {
         int id = this.getLastId();
-        s.execute("DELETE FROM Scores WHERE id="+id);
+        s.execute("DELETE FROM Scores WHERE id=" + id);
     }
     
     @Override
@@ -83,7 +83,7 @@ public class SQLHighScoreDao implements HighScoreDao<String, Integer> {
     
     private int getLastId() throws SQLException {
         int score = this.getLastScore();
-        PreparedStatement p = db.prepareStatement("SELECT id FROM Scores WHERE score="+score);
+        PreparedStatement p = db.prepareStatement("SELECT id FROM Scores WHERE score=" + score);
         r = p.executeQuery();
         r.next();
         int id = r.getInt(1);

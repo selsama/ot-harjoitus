@@ -227,12 +227,11 @@ public class GameHandler {
      * @return True, if the game was not set on pause
      */
     public boolean handleKeyPressed(KeyCode code) {
-        if(!started) {
+        if (!started) {
             if (snakeControls.containsKey(code)) {
                 snake.setDirection(snakeControls.get(code));
             }
-        }
-        else if (!over) {
+        } else if (!over) {
             if (snakeControls.containsKey(code)) {
                 this.turnSnake(snakeControls.get(code));
             }

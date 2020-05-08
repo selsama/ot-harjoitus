@@ -29,7 +29,7 @@ public class TestHighScoreDao implements HighScoreDao<String, Integer> {
             return true;
         }
         String[] parts = highscores.get(9).split(";");
-        if(score >= Integer.parseInt(parts[1])) {
+        if (score >= Integer.parseInt(parts[1])) {
             return true;
         }
         return false;
@@ -40,8 +40,7 @@ public class TestHighScoreDao implements HighScoreDao<String, Integer> {
         String s = name + ";" + score;
         if (highscores.size() < 10) {
             highscores.add(s);
-        }
-        else {
+        } else {
             this.deleteLast();
             highscores.add(s);
         }

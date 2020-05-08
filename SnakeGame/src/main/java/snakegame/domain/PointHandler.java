@@ -79,7 +79,7 @@ public class PointHandler {
     
     public boolean addNewHighscore(String name) {
         try {
-            if(highscores.getScores().size() >= 10) {
+            if (highscores.getScores().size() >= 10) {
                 highscores.deleteLast();
             }
             highscores.add(name, points);
