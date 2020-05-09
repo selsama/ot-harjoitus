@@ -6,6 +6,7 @@
 package domain;
 
 import java.util.*;
+import javafx.scene.input.KeyCode;
 import snakegame.domain.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -36,10 +37,43 @@ public class GameHandlerGeneralTest {
         assertTrue(game.getObstacles() instanceof List);
     }
     
-//    @Test
-//    public void wallsExist() {
-//        
-//    }
+//    button tests
+    @Test
+    public void testPauseButton() {
+        assertTrue("game should start on pause", game.onPause());
+        game.start();
+        assertFalse("starting the game should unpause it", game.onPause());
+        game.handleKeyPressed(KeyCode.P);
+        assertTrue("pressing P should pause the game when unpaused", game.onPause());
+        game.handleKeyPressed(KeyCode.P);
+        assertFalse("pressing P should unpause the game when paused", game.onPause());
+    }
+    
+    @Test
+    public void testTurnButtons() {
+        game.start();
+        game.handleKeyPressed(KeyCode.RIGHT);
+        assertEquals("Not turning right", Direction.RIGHT, 
+                game.getSnake().getDirection());
+        game.handleKeyPressed(KeyCode.LEFT);
+        assertEquals("Turning to opposite direction should not be possible", 
+                Direction.RIGHT, game.getSnake().getDirection());
+        game.handleKeyPressed(KeyCode.DOWN);
+        assertEquals("Not turning down", Direction.DOWN,
+                game.getSnake().getDirection());
+        game.handleKeyPressed(KeyCode.UP);
+        assertEquals("Turning to opposite direction should not be possible", 
+                Direction.DOWN, game.getSnake().getDirection());
+        game.handleKeyPressed(KeyCode.LEFT);
+        assertEquals("Not turning left", Direction.LEFT,
+                game.getSnake().getDirection());
+        game.handleKeyPressed(KeyCode.UP);
+        assertEquals("Not turning up", Direction.UP, 
+                game.getSnake().getDirection());
+    }
+    
+    
+//    gameover tests
     
     @Test
     public void gameOverIfSnakeHitsWall() {
@@ -67,7 +101,49 @@ public class GameHandlerGeneralTest {
         }
         assertTrue("problem: left wall", game.gameOver());
     }
+
+    @Test
+    public void snakeEatsOwnTailTest() {
+        game.handleKeyPressed(KeyCode.UP);
+        game.moveSnake();
+        game.moveSnake();
+        game.handleKeyPressed(KeyCode.LEFT);
+        game.moveSnake();
+        game.moveSnake();
+        game.handleKeyPressed(KeyCode.DOWN);
+        game.moveSnake();
+        game.moveSnake();
+        game.handleKeyPressed(KeyCode.RIGHT);
+        game.moveSnake();
+        game.moveSnake();
+        assertTrue("Snake hit own tail but did not die", game.gameOver());
+        game.handleKeyPressed(KeyCode.UP);
+        assertEquals("Snake turned after gameover", Direction.RIGHT, 
+                        game.getSnake().getDirection());
+    }
     
+    @Test
+    public void SnakeHitsNothingTest() {
+        game.moveSnake();
+        game.moveSnake();
+        assertFalse(game.gameOver());
+        game.handleKeyPressed(KeyCode.RIGHT);
+        game.moveSnake();
+        game.moveSnake();
+        game.moveSnake();
+        assertFalse("Snake hit right wall too early",game.gameOver());
+        game.handleKeyPressed(KeyCode.DOWN);
+        game.moveSnake();
+        game.handleKeyPressed(KeyCode.LEFT);
+        game.moveSnake();
+        assertFalse("Snake should be able to make a u-turn", game.gameOver());
+        game.handleKeyPressed(KeyCode.RIGHT);
+        game.moveSnake();
+        assertFalse("Snake should not die from player trying to turn to opposite direction",
+                game.gameOver());
+        assertEquals("Snake should not turn to opposite direction", 
+                Direction.LEFT, game.getSnake().getDirection());
+    }
     
     
 }

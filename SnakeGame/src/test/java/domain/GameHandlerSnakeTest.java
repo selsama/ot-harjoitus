@@ -5,10 +5,9 @@
  */
 package domain;
 
+import javafx.scene.paint.Color;
 import snakegame.domain.*;
 import javafx.scene.shape.*;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -59,6 +58,13 @@ public class GameHandlerSnakeTest {
         assertEquals("Does not turn left", Direction.LEFT, snake.getDirection());
         game.turnSnake(Direction.UP);
         assertEquals("Does not turn up", Direction.UP, snake.getDirection());
+    }
+    
+    @Test
+    public void setSnakeColorTest() {
+        SnakeHead snake = game.getSnake();
+        game.setSnakeColor(Color.AQUA);
+        assertTrue(snake.getColor().equals(Color.AQUA));
     }
 
 }
