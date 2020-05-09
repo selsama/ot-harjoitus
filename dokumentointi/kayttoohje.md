@@ -1,6 +1,12 @@
 ## Käyttöohje
 
-### konfigurointi ja ohjelman käynnistäminen
+### Konfigurointi ja ohjelman käynnistäminen
+
+Lataa kohdasta (loppupalautuksen)[https://github.com/selsama/ot-harjoitus/releases/tag/Loppupalautus] *snakegame.jar* ja *config.properties* ja sijoita ne samaan kansioon. Suorita ohjema hakemistossa komennolla
+
+    java -jar snakegame.jar
+  
+Oletuksena ohjelma luo sijaintiinsa tietokannan parhaiden tulosten tallentamiseen. Jos haluat muokata tietokannan sijaintia/nimeä, muuta tekstieditorilla tiedoston *config.properties* kohta *./scores* mieleiseksesi.
 
 ### Päävalikko
 
