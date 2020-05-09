@@ -35,7 +35,7 @@ public class SnakeTail implements Crashable {
     }
     
     /**
-     * 
+     * return the vertical position of the TailPart
      * @return the y-coordinate of the upper left corner of this SnakeTail
      */
     public int getY() {

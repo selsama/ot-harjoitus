@@ -230,6 +230,7 @@ public class GameHandler {
         if (!started) {
             if (snakeControls.containsKey(code)) {
                 snake.setDirection(snakeControls.get(code));
+                this.start();
             }
         } else if (!over) {
             if (snakeControls.containsKey(code)) {

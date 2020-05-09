@@ -15,6 +15,10 @@ public class PointHandler {
     private Integer points;
     private HighScoreDao highscores;
     
+    /**
+     * creates a new instance of PointHandler, that uses the given HighScoreDao
+     * @param dao 
+     */
     public PointHandler(HighScoreDao dao) {
         try {
             highscores = dao;
@@ -76,7 +80,11 @@ public class PointHandler {
         }
         return highscores;
     }  
-    
+    /**
+     * adds a new highscore to the list
+     * @param name the name of the player
+     * @return true, if the score was added successfully, else false
+     */
     public boolean addNewHighscore(String name) {
         try {
             if (highscores.getScores().size() >= 10) {

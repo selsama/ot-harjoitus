@@ -63,7 +63,9 @@ public class SnakeUi extends Application {
         primaryStage.setScene(menuScene);
         primaryStage.show();
     }
-    
+   /**
+    * creates the Menu scene
+    */ 
     public void createMenuScene() {
         BorderPane menuPane = new BorderPane();
         Button newGameButton = new Button("new game");
@@ -90,6 +92,9 @@ public class SnakeUi extends Application {
         menuScene = new Scene(menuPane, SCENEWIDTH, SCENEHEIGHT);
     }
     
+    /**
+     * creates and sets a new Game Over scene
+     */
     public void createGameOverScene() {
         Button newGameButton = new Button("play again");
         newGameButton.setOnAction(e->{
@@ -133,6 +138,9 @@ public class SnakeUi extends Application {
         stage.setScene(gameOverScene);
     }
     
+    /**
+     * creates the Settings scene
+     */
     public void createSettingScene() {
         Pane settingPane = new Pane();
         VBox settingBox = new VBox();
@@ -182,6 +190,9 @@ public class SnakeUi extends Application {
         settingScene = new Scene(settingPane, SCENEWIDTH, SCENEHEIGHT);
     }
     
+    /**
+     * creates and sets new game scene
+     */
     public void createGameScene() {
         game.newGame();
         points.reset();
@@ -229,6 +240,9 @@ public class SnakeUi extends Application {
         }.start();
     }
     
+    /**
+     * creates and sets highscore scene
+     */
     private void createHighScoreScene() {
         BorderPane highScorePane = new BorderPane();
         Label title = new Label("HIGHSCORES:");
@@ -248,17 +262,19 @@ public class SnakeUi extends Application {
         highScoreScene = new Scene(highScorePane, SCENEWIDTH, SCENEHEIGHT);
     }
     
+    /**
+     * sets the current scene to Menu
+     */
     public void setMenuScene() {
         stage.setScene(menuScene);
     }
     
+    /**
+     * sets the current scene to Settings
+     */
     public void setSettingScene() {
         stage.setScene(settingScene);
     }
-    
-//    public void setGameOverScene() {
-//        stage.setScene(gameOverScene);
-//    }
     
     public static void main(String[] args)  {
         launch(args);
