@@ -8,8 +8,7 @@ package snakegame.dao;
 import java.sql.*;
 import java.util.*;
 /**
- *
- * @author salmison
+ * HighScoreDao for testing, throws SQLExceptions with everything
  */
 public class TestExceptionHighScoreDao implements HighScoreDao<String, Integer> {
     

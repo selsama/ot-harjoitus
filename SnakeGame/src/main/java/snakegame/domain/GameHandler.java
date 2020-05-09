@@ -10,8 +10,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 /**
- *
- * @author salmison
+ * Controls SnakeHead, SnakeTail, and Obstacle instances, and settings in game
  */
 public class GameHandler {
     private boolean paused;

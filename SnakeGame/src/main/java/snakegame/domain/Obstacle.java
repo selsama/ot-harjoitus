@@ -6,8 +6,7 @@
 package snakegame.domain;
 import javafx.scene.shape.*;
 /**
- *
- * @author salmison
+ * A class for making non-moving obstacles for the game
  */
 public class Obstacle implements Crashable {
     

@@ -8,8 +8,7 @@ package snakegame.dao;
 import java.util.*;
 
 /**
- *
- * @author salmison
+ * HighScoreDao for testing, does not save anything permanently
  */
 public class TestHighScoreDao implements HighScoreDao<String, Integer> {
     

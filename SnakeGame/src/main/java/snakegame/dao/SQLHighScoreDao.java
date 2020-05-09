@@ -9,8 +9,7 @@ import java.sql.*;
 import java.util.*;
 
 /**
- *
- * @author salmison
+ * SQL-using HighScoreDao for saving high scores
  */
 public class SQLHighScoreDao implements HighScoreDao<String, Integer> {
     
@@ -18,12 +17,15 @@ public class SQLHighScoreDao implements HighScoreDao<String, Integer> {
     private Statement s;
     private ResultSet r;
     
+    /**
+     * creates a new SQLHighScoreDao to given location
+     * @param data location of SQL database
+     */
     public SQLHighScoreDao(String data) {
         try {
             db = DriverManager.getConnection("jdbc:h2:" + data);
             s = db.createStatement();
         } catch (SQLException e) {
-            System.out.println("Cannot connect to database");
         }
         try {
             s.execute("CREATE TABLE Scores (id INTEGER PRIMARY KEY AUTO_INCREMENT, name TEXT, score INTEGER)");

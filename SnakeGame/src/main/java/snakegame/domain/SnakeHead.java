@@ -7,8 +7,7 @@ package snakegame.domain;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 /**
- *
- * @author salmison
+ * Represents the head of the snake in game
  */
 public class SnakeHead implements Crashable {
     

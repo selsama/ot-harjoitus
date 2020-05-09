@@ -23,7 +23,6 @@ public class PointHandler {
         try {
             highscores = dao;
         } catch (Exception e) {
-            System.out.println("Check your database connection");
         }
         points = 0;
     }
@@ -60,7 +59,6 @@ public class PointHandler {
         try {
             answer = highscores.checkIfHighscore(points);
         } catch (Exception e) {
-            System.out.println("error with highscore system: " + e.getMessage());
             answer = false;
         }
         return answer;
@@ -75,7 +73,6 @@ public class PointHandler {
         try {
             highscores = this.highscores.getScores();
         } catch (Exception e) {
-            System.out.println("error with highscore system: " + e.getMessage());
             highscores = new ArrayList<>();
         }
         return highscores;
@@ -92,7 +89,6 @@ public class PointHandler {
             }
             highscores.add(name, points);
         } catch (Exception e) {
-            System.out.println("error with highscore system: " + e.getMessage());
             return false;
         }
         return true;

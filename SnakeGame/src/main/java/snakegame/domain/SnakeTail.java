@@ -7,8 +7,7 @@ package snakegame.domain;
 import javafx.scene.paint.*;
 import javafx.scene.shape.*;
 /**
- *
- * @author salmison
+ * Class for making parts of tail for snake
  */
 public class SnakeTail implements Crashable {
     

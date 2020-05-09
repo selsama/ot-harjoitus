@@ -21,6 +21,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+/**
+ * Game interface
+ */
 public class SnakeUi extends Application {
     
     private Stage stage;
