@@ -2,13 +2,15 @@
 
 Sovellus on matopeli. Matoa käännetään nuolinäppäimillä ja se liikkuu itsestään. Peli loppuu, kun mato törmää seinään tai omaan häntäänsä. Pelin voi pausettaa/jatkaa painamalla P. Madon värin ja vaikeustason voi valita asetuksista.
 
-[Käyttöohje](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/kayttoohje.md)
-
 ## Dokumentaatio
+
+[Käyttöohje](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/kayttoohje.md)
 
 [Vaatimusmäärittely](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/vaatimusmaarittely.md)
 
 [Arkkitehtuuri](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/arkkitehtuuri.md)
+
+[Testausdokumentti](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/testaus.md)
 
 [Työaikakirjanpito](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/tyoaikakirjanpito.md)
 
@@ -18,7 +20,7 @@ Sovellus on matopeli. Matoa käännetään nuolinäppäimillä ja se liikkuu its
 
 ## Releaset
 
-[Viikko 6](https://github.com/selsama/ot-harjoitus/releases/tag/viikko6)
+[Loppupalautus](https://github.com/selsama/ot-harjoitus/releases/tag/Loppupalautus)
 
 [Kaikki releaset](https://github.com/selsama/ot-harjoitus/releases)
 
