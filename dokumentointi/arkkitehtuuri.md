@@ -4,7 +4,7 @@
 
 Ohjelman pakkausrakenne on seuraava:
 
-![pakkauskaavio](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/pakkauskaavio.png)
+![pakkauskaavio](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/kuvat/pakkauskaavio.png)
 
 Pakkaus *snakegame.ui* sisältää JavaFX:llä toteutetun graafisen käyttöliittymän rakentavan koodin, *snakegame.domain* sovelluslogiikan ja *snakegame.dao* tietojen pysyväistallennuksesta vastaavan koodin. Rakenne noudattaa kolmitasoista kerrosarkkitehtuuria.
 
@@ -28,7 +28,13 @@ Luokka *GameHandler* hallinnoi pelin elementtejä, joita ovat seinät ja muut es
 
 *PointHandler* huolehtii pisteenlaskusta. *PointHandler* myös pääsee käsiksi parhaiden tulosten listaan pakkauksessa *snakegame.dao* sijaitsevan rajapinnan *HighScoreDao* toteuttavan luokan kautta. Luokan toteutus injektoidaan *PointHandler*ille konstruktorikutsun yhteydessä.
 
-![luokkakaavio](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/luokkakaavio.png)
+![luokkakaavio](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/kuvat/luokkakaavio.png)
+
+### Tietojen pysyväistallennus
+
+Pakkauksen *snakegame.dao* luokka *SQLHighScoreDao* tallentaa huippupisteet tietokantaan. Luokka on eristetty sovelluslogiikasta rajapinnan *HighScoreDao* taakse. Tämä noudattaa Data Access Object -suunnittelumallia ja tietojen talletustapaa voidaan tarvittaessa vaihtaa. Testauksessa käytetäänkin luokkia *TestHighScoreDao* ja *ExceptionTestHighScoreDao*, joista ensimmäinen tallentaa keskusmuistiin ja jälkimmäinen heittää poikkeuksia.
+
+Käytetty tietokanta on määritelty tiedostossa konfiguraatiotiedostossa *config.properties*. Sovellus tallettaa tulokset tietokantatauluun, jossa on sarakkeet nimelle ja pisteille.
 
 ### Päätoiminnallisuudet
 
@@ -38,5 +44,15 @@ Seuraavassa kuvataan sovelluksen toimintalogiikka sekvenssikaavioina muutaman p�
 
 *SnakeUi* kutsuu luokan *GameHandler* metodia *moveSnake()*. Tämä kutsuu ensin SnakeHead-luokan metodia *move()*, joka siirtää käärmeen päätä käärmeen kulkusuuntaan. Sitten se kutsuu *SnakeHead*in metodia *leaveTail()*, joka luo uuden *SnakeTail*-instanssin oikeaan kohtaan ja palauttaa sen *GameHandlerille*. *GameHandler* lisää hännän listalle. Sitten se kutsuu *SnakeTail*-luokan metodia *getShape()* ja palauttaa saamansa *Rectangle*-olion *SnakeUi*lle piirrettäväksi.
 
-![snakeUP](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/Snake%20moving%20(UP).png)
+![snakeUP](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/kuvat/Snake%20moving%20(UP).png)
+
+##### Käärmeen kääntäminen
+
+Käyttäjä painaa näppäintä ja käyttöjärjestelmä havaitsee sen. *SnakeUi* kutsuu luokan *GameHandler* metodia *handleKeyPressed(Keycode code)*. Tämä tarkistaa ensin, löytyykö painettu näppäin käärmeen kontrolleista, jotka on tallennettu *HasMap*piin *snakeControls*. Jos näppäin löytyy, metodi hakee kontrollia vastaavan suunnan ja kutsuu saman luokan metodia *turnSnake(Direction dir)*. Tämä metodi kutsuu *SnakeHead*-luokan metodia, joka vastaa kyseistä suuntaa (tässä *turnUp()*). Kyseinen metodin tarkistaa ensin, että käärme ei ole menossa vastakkaiseen suuntaan, ja muuttaa sitten käärmeen liikkumissuunnan.
+
+![pressUp](https://github.com/selsama/ot-harjoitus/blob/master/dokumentointi/kuvat/User%20presses%20button%20(UP).png)
+
+### Rakenteeseen jääneet heikkoudet
+
+*GameHandler* -luokka kasvoi hyvin suureksi, sen olisi voinut pilkkoa osiin, esim. asetusten hallinta olisi luontevaa siirtää omaan luokkaansa. Kyseisen luokan metodi *moveSnake()* ei ihan toteuta Single Responsibility -periaatta ja muutaman muunkin metodin toteutus on 'sotkuinen'.
 
