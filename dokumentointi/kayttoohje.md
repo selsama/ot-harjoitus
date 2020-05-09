@@ -2,7 +2,7 @@
 
 ### Konfigurointi ja ohjelman käynnistäminen
 
-Lataa kohdasta (loppupalautuksen)[https://github.com/selsama/ot-harjoitus/releases/tag/Loppupalautus] *snakegame.jar* ja *config.properties* ja sijoita ne samaan kansioon. Suorita ohjema hakemistossa komennolla
+Lataa [loppupalautuksen](https://github.com/selsama/ot-harjoitus/releases/tag/Loppupalautus) tiedostot *snakegame.jar* ja *config.properties* ja sijoita ne samaan kansioon. Suorita ohjema hakemistossa komennolla
 
     java -jar snakegame.jar
   
