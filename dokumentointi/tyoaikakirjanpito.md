@@ -17,5 +17,6 @@ Pvm | Tunnit | Aihe
 27.4. | 4.5 | Javadocin aloitus, huippupistenäkymä, huippupisteiden lisääminen gameOver-näkymässä, uusi luokka PointHandler, dao:jen aloitus, testejä
 28.4. | 1.5 | Dokumentointia
 7.5.  | 2.5 | SQL:n käyttöönotto
+8.5.  | 7   | Dokumentointi, viimeistely, testejä, Javadoc
 
-YHTEENSÄ 35.5 H
+YHTEENSÄ 42.5 H
